@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://motephyr.github.io/sitemap.xml 
