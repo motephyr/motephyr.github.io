@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[馬克的程式架構筆記]]></title>
+  <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://motephyr.github.io/atom.xml" rel="self"/>
   <link href="http://motephyr.github.io/"/>
-  <updated>2013-06-30T13:42:01+08:00</updated>
+  <updated>2013-06-30T13:52:09+08:00</updated>
   <id>http://motephyr.github.io/</id>
   <author>
-    <name><![CDATA[Mark Wu]]></name>
+    <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -18,7 +18,7 @@
     <link href="http://motephyr.github.io/blog/2013/06/30/about-octopress/"/>
     <updated>2013-06-30T13:37:00+08:00</updated>
     <id>http://motephyr.github.io/blog/2013/06/30/about-octopress</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>熟悉一下</p>
 ]]></content>
   </entry>
   
