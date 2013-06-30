@@ -4,7 +4,7 @@
   <title><![CDATA[馬克的程式架構筆記]]></title>
   <link href="http://motephyr.github.io/atom.xml" rel="self"/>
   <link href="http://motephyr.github.io/"/>
-  <updated>2013-06-30T13:37:14+08:00</updated>
+  <updated>2013-06-30T13:42:01+08:00</updated>
   <id>http://motephyr.github.io/</id>
   <author>
     <name><![CDATA[Mark Wu]]></name>
@@ -16,26 +16,8 @@
   <entry>
     <title type="html"><![CDATA[about octopress]]></title>
     <link href="http://motephyr.github.io/blog/2013/06/30/about-octopress/"/>
-    <updated>2013-06-30T13:27:00+08:00</updated>
+    <updated>2013-06-30T13:37:00+08:00</updated>
     <id>http://motephyr.github.io/blog/2013/06/30/about-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[關於octopress]]></title>
-    <link href="http://motephyr.github.io/blog/2013/06/30/guan-yu-octopress/"/>
-    <updated>2013-06-30T13:20:00+08:00</updated>
-    <id>http://motephyr.github.io/blog/2013/06/30/guan-yu-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[]]></title>
-    <link href="http://motephyr.github.io/blog/2013/06/30/"/>
-    <updated>2013-06-30T13:18:00+08:00</updated>
-    <id>http://motephyr.github.io/blog/2013/06/</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>
