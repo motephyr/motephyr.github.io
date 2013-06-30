@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://motephyr.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: 馬克的程式架構筆記
+subtitle: 為了創造有價值的產品，想法、實作架構、行銷有同等的重要性
+author: Mark Wu
 simple_search: http://google.com/search
 description:
 
@@ -73,7 +73,7 @@ twitter_user:
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
@@ -97,4 +97,4 @@ disqus_show_comment_count: false
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
