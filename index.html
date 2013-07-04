@@ -9,7 +9,7 @@
   <meta name="author" content="Mark Wu">
 
   
-  <meta name="description" content="一直有寫文件的需求，苦於對blog或wordpress這類的東西不太上手，到現在才看到Octopress，覺得相當適合，打算拿它來寫點技術性的文章。 也順便來推廣一下 markdown 好了，最近對markdown的語法愛不釋手，覺得用來寫技術文件蠻適合的，基本上寫東西的需求很少， &hellip;">
+  <meta name="description" content="Goliath是以Ruby開發的non-blocking (asynchronous) Server，相對於最近熱門到不行的node.js來說，也是一個強調高效能且即時的Server。 目前個人做了一個小玩具，叫EasyGo(liath)，就是幫goliath(巨人)接接原本它沒有的翅膀呀， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,88 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/04/easygo/">Easygo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-04T16:22:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://github.com/postrank-labs/goliath">Goliath</a>是以Ruby開發的non-blocking (asynchronous) Server，相對於最近熱門到不行的node.js來說，也是一個強調高效能且即時的Server。</p>
+
+<p>目前個人做了一個小玩具，叫EasyGo(liath)，就是幫goliath(巨人)接接原本它沒有的翅膀呀，手呀腳呀(Goliath給出來的東西都是小東西，發育不良)，自已做起東西就方便得多。</p>
+
+<p>至於為什麼不想用node.js來做呢？</p>
+
+<ul>
+<li>對javascipt有恐懼感 = = 我沒有jquery就不會做事了</li>
+<li>一堆callback看到我眼睛都抽筋了</li>
+<li>比較想用ruby寫東西(個人私心)</li>
+</ul>
+
+
+<p>以上只代表一件事 I love ruby > javascript</p>
+
+<p>回主題，重點是Goliath和其他元件如何搭配出我在Java做了三年的工具，所以原本其實只要搞定連接mqserver，使用Websocket和在不支援前者時改用long-polling的問題就可以處理掉通知功能，但還是做了不少其他的部分，有些東西，像測試，以前用java不會花時間寫，但在重構的過程中卻是很重要的部分，所以也算是一種進步吧。</p>
+
+<h2>目前用到的模組</h2>
+
+<h3>Grape</h3>
+
+<p>用以處理路由的部分，以前我寫spring MVC的人，路由不喜歡另外搞一個檔案出來維護，route檔案肥了你也看不懂，還不如照著Rest-like的規則把Controller寫好不是很方便嗎？</p>
+
+<h3>Postgresql</h3>
+
+<p>資料庫嘛…總是要挑一種來存資料的，我們用postgresql習慣了，所以就暫時接postgresql</p>
+
+<h3>Rspec、Guard、simplecov、pry</h3>
+
+<p>Rspec和Guard
+非常重要，沒有它保證程式運作正常，心裡都會毛毛的</p>
+
+<p>simplecov 以後程式慢慢變肥的話，測試覆蓋率是一個指標，想重構之前先看看自已寫測試了沒。</p>
+
+<p>pry 就是設中斷點給你用啦！不然除錯會除到哭出來哦！</p>
+
+<h2>接下來要做的部分</h2>
+
+<h3>WebSocket</h3>
+
+<p>其實這才是重點= =，如何能夠讓頁面元素透過Server-Client即時的交換資料來出現神奇的功能就靠它啦！</p>
+
+<h3>與MQ的串接</h3>
+
+<p>原本我們在公司是用ActiveMQ接tomcat來做訊息的傳遞，看到了Stomp這個Apache推出的support，應該不會是難事了吧。</p>
+
+<p>後面還有不少東西要作，一步一步來吧</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -157,6 +239,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/04/easygo/">Easygo</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/06/30/about-octopress/">Octopress & Markdown</a>
