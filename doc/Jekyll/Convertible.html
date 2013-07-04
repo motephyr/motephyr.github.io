@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Jekyll::Convertible - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>plugins/post_filters.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-do_layout">#do_layout</a>
+    
+    <li ><a href="#method-i-full_url">#full_url</a>
+    
+    <li ><a href="#method-i-is_filterable-3F">#is_filterable?</a>
+    
+    <li ><a href="#method-i-is_page-3F">#is_page?</a>
+    
+    <li ><a href="#method-i-is_post-3F">#is_post?</a>
+    
+    <li ><a href="#method-i-old_do_layout">#old_do_layout</a>
+    
+    <li ><a href="#method-i-old_transform">#old_transform</a>
+    
+    <li ><a href="#method-i-post_render">#post_render</a>
+    
+    <li ><a href="#method-i-post_write">#post_write</a>
+    
+    <li ><a href="#method-i-pre_render">#pre_render</a>
+    
+    <li ><a href="#method-i-transform">#transform</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../_deploy/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../_deploy/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../_deploy/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../_deploy/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../_deploy/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../_deploy/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/guan-yu-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../index_html.html">index.html</a>
+  
+    <li class="file"><a href="../javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../public/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../public/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../public/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../public/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../public/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../public/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../public/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../public/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../public/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../public/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../sass/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../sass/_partials_scss.html">_partials.scss</a>
+  
+    <li class="file"><a href="../sass/base/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../sass/base/_solarized_scss.html">_solarized.scss</a>
+  
+    <li class="file"><a href="../sass/base/_theme_scss.html">_theme.scss</a>
+  
+    <li class="file"><a href="../sass/base/_typography_scss.html">_typography.scss</a>
+  
+    <li class="file"><a href="../sass/base/_utilities_scss.html">_utilities.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_colors_scss.html">_colors.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_fonts_scss.html">_fonts.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_styles_scss.html">_styles.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_archive_scss.html">_archive.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_blog_scss.html">_blog.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_footer_scss.html">_footer.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_header_scss.html">_header.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_navigation_scss.html">_navigation.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_sharing_scss.html">_sharing.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_sidebar_scss.html">_sidebar.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_syntax_scss.html">_syntax.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_delicious_scss.html">_delicious.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_googleplus_scss.html">_googleplus.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_pinboard_scss.html">_pinboard.scss</a>
+  
+    <li class="file"><a href="../sass/plugins/_plugins_scss.html">_plugins.scss</a>
+  
+    <li class="file"><a href="../sass/screen_scss.html">screen.scss</a>
+  
+    <li class="file"><a href="../sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../source/_includes/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/archive_post_html.html">archive_post.html</a>
+  
+    <li class="file"><a href="../source/_includes/article_html.html">article.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/delicious_html.html">delicious.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/github_html.html">github.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/googleplus_html.html">googleplus.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/pinboard_html.html">pinboard.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/recent_posts_html.html">recent_posts.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/asides/about_html.html">about.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/category_feed_xml.html">category_feed.xml</a>
+  
+    <li class="file"><a href="../source/_includes/custom/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../source/_includes/disqus_html.html">disqus.html</a>
+  
+    <li class="file"><a href="../source/_includes/facebook_like_html.html">facebook_like.html</a>
+  
+    <li class="file"><a href="../source/_includes/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/google_analytics_html.html">google_analytics.html</a>
+  
+    <li class="file"><a href="../source/_includes/google_plus_one_html.html">google_plus_one.html</a>
+  
+    <li class="file"><a href="../source/_includes/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../source/_includes/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../source/_includes/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/author_html.html">author.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/categories_html.html">categories.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/date_html.html">date.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/disqus_thread_html.html">disqus_thread.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/sharing_html.html">sharing.html</a>
+  
+    <li class="file"><a href="../source/_includes/twitter_sharing_html.html">twitter_sharing.html</a>
+  
+    <li class="file"><a href="../source/_layouts/category_index_html.html">category_index.html</a>
+  
+    <li class="file"><a href="../source/_layouts/default_html.html">default.html</a>
+  
+    <li class="file"><a href="../source/_layouts/page_html.html">page.html</a>
+  
+    <li class="file"><a href="../source/_layouts/post_html.html">post.html</a>
+  
+    <li class="file"><a href="../source/_posts/2013-06-30-about-octopress_markdown.html">2013-06-30-about-octopress.markdown</a>
+  
+    <li class="file"><a href="../source/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../source/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../source/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../source/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../source/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../source/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../source/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../source/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../source/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../source/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../source/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../stylesheets/screen_css.html">screen.css</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../Jekyll/ContentFilters.html">Jekyll::ContentFilters</a>
+  
+    <li><a href="../Jekyll/Convertible.html">Jekyll::Convertible</a>
+  
+    <li><a href="../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../Jekyll/Layout.html">Jekyll::Layout</a>
+  
+    <li><a href="../Jekyll/Page.html">Jekyll::Page</a>
+  
+    <li><a href="../Jekyll/Pager.html">Jekyll::Pager</a>
+  
+    <li><a href="../Jekyll/Pagination.html">Jekyll::Pagination</a>
+  
+    <li><a href="../Jekyll/Post.html">Jekyll::Post</a>
+  
+    <li><a href="../Jekyll/PostFilter.html">Jekyll::PostFilter</a>
+  
+    <li><a href="../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../Jekyll/SitemapFile.html">Jekyll::SitemapFile</a>
+  
+    <li><a href="../Jekyll/SitemapGenerator.html">Jekyll::SitemapGenerator</a>
+  
+    <li><a href="../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../Liquid.html">Liquid</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../Octopress.html">Octopress</a>
+  
+    <li><a href="../Octopress/Date.html">Octopress::Date</a>
+  
+    <li><a href="../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Jekyll::Convertible</h1>
+
+  <div id="description" class="description">
+    
+<p>Monkey patch for the <a href="../Jekyll.html">Jekyll</a> <a
+href="Convertible.html">Convertible</a> module. For the original class,
+see: <a
+href="https://github.com/mojombo/jekyll/blob/master/lib/jekyll/convertible.rb">github.com/mojombo/jekyll/blob/master/lib/jekyll/convertible.rb</a></p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-do_layout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">do_layout</span><span
+            class="method-args">(payload, layouts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calls the <a href="Convertible.html#method-i-pre_render">#pre_render</a>
+method if it exists and then adds any necessary layouts to this convertible
+document.</p>
+
+<p>payload - The site payload Hash. layouts - A Hash of {“name” =&gt;
+“layout”}.</p>
+
+<p>Returns nothing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="do_layout-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">do_layout</span>(<span class="ruby-identifier">payload</span>, <span class="ruby-identifier">layouts</span>)
+  <span class="ruby-identifier">pre_render</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:pre_render</span>)
+  <span class="ruby-identifier">old_do_layout</span>(<span class="ruby-identifier">payload</span>, <span class="ruby-identifier">layouts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- do_layout-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Convertible.html#method-i-old_do_layout">old_do_layout</a>
+        </div>
+        
+
+        
+      </div><!-- do_layout-method -->
+
+    
+      <div id="method-i-full_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">full_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the full url of the post, including the configured url</p>
+          
+          
+
+          
+          <div class="method-source-code" id="full_url-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">full_url</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">config</span>[<span class="ruby-string">&#39;url&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- full_url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- full_url-method -->
+
+    
+      <div id="method-i-is_filterable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_filterable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_filterable-3F-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_filterable?</span>
+  <span class="ruby-identifier">is_post?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">is_page?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_filterable-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_filterable-3F-method -->
+
+    
+      <div id="method-i-is_page-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_page?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_page-3F-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_page?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Jekyll::Page&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_page-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_page-3F-method -->
+
+    
+      <div id="method-i-is_post-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_post?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_post-3F-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_post?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Jekyll::Post&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_post-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_post-3F-method -->
+
+    
+      <div id="method-i-old_do_layout" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">old_do_layout</span><span
+            class="method-args">(payload, layouts)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copy the <a href="Convertible.html#method-i-do_layout">do_layout</a> method
+to <a href="Convertible.html#method-i-old_do_layout">old_do_layout</a>, so
+we can redefine <a href="Convertible.html#method-i-do_layout">do_layout</a>
+method.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Convertible.html#method-i-do_layout">do_layout</a>
+        </div>
+        
+      </div><!-- old_do_layout-method -->
+
+    
+      <div id="method-i-old_transform" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">old_transform</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copy the <a href="Convertible.html#method-i-transform">transform</a> method
+to <a href="Convertible.html#method-i-old_transform">old_transform</a>, so
+we can redefine <a href="Convertible.html#method-i-transform">transform</a>
+method.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Convertible.html#method-i-transform">transform</a>
+        </div>
+        
+      </div><!-- old_transform-method -->
+
+    
+      <div id="method-i-post_render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_render</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call the <a href="Convertible.html#method-i-post_render">post_render</a>
+methods on all of the loaded post_filter plugins.</p>
+
+<p>Returns nothing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="post_render-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_render</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">is_filterable?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">post_render</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- post_render-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- post_render-method -->
+
+    
+      <div id="method-i-post_write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_write</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call the <a href="Convertible.html#method-i-post_write">post_write</a>
+methods on all of the loaded post_filter plugins.</p>
+
+<p>Returns nothing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="post_write-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_write</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">is_filterable?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">post_write</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- post_write-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- post_write-method -->
+
+    
+      <div id="method-i-pre_render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pre_render</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call the <a href="Convertible.html#method-i-pre_render">pre_render</a>
+methods on all of the loaded post_filter plugins.</p>
+
+<p>Returns nothing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pre_render-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_render</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">load_post_filters</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">is_filterable?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">post_filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">pre_render</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pre_render-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pre_render-method -->
+
+    
+      <div id="method-i-transform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Transform the contents based on the content type. Then calls the <a
+href="Convertible.html#method-i-post_render">post_render</a> method if it
+exists</p>
+
+<p>Returns nothing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transform-source">
+            <pre><span class="ruby-comment"># File plugins/post_filters.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform</span>
+  <span class="ruby-identifier">old_transform</span>
+  <span class="ruby-identifier">post_render</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:post_render</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- transform-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Convertible.html#method-i-old_transform">old_transform</a>
+        </div>
+        
+
+        
+      </div><!-- transform-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

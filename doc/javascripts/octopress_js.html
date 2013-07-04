@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>octopress.js - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../_deploy/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../_deploy/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../_deploy/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../_deploy/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../_deploy/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../_deploy/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../_deploy/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/guan-yu-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/2013/06/30/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../index_html.html">index.html</a>
+  
+    <li class="file"><a href="../javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../public/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../public/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../public/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../public/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../public/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../public/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../public/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../public/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../public/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../public/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../public/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../public/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../sass/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../sass/_partials_scss.html">_partials.scss</a>
+  
+    <li class="file"><a href="../sass/base/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../sass/base/_solarized_scss.html">_solarized.scss</a>
+  
+    <li class="file"><a href="../sass/base/_theme_scss.html">_theme.scss</a>
+  
+    <li class="file"><a href="../sass/base/_typography_scss.html">_typography.scss</a>
+  
+    <li class="file"><a href="../sass/base/_utilities_scss.html">_utilities.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_colors_scss.html">_colors.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_fonts_scss.html">_fonts.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../sass/custom/_styles_scss.html">_styles.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_archive_scss.html">_archive.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_blog_scss.html">_blog.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_footer_scss.html">_footer.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_header_scss.html">_header.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_navigation_scss.html">_navigation.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_sharing_scss.html">_sharing.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_sidebar_scss.html">_sidebar.scss</a>
+  
+    <li class="file"><a href="../sass/partials/_syntax_scss.html">_syntax.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_delicious_scss.html">_delicious.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_googleplus_scss.html">_googleplus.scss</a>
+  
+    <li class="file"><a href="../sass/partials/sidebar/_pinboard_scss.html">_pinboard.scss</a>
+  
+    <li class="file"><a href="../sass/plugins/_plugins_scss.html">_plugins.scss</a>
+  
+    <li class="file"><a href="../sass/screen_scss.html">screen.scss</a>
+  
+    <li class="file"><a href="../sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../source/_includes/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/archive_post_html.html">archive_post.html</a>
+  
+    <li class="file"><a href="../source/_includes/article_html.html">article.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/delicious_html.html">delicious.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/github_html.html">github.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/googleplus_html.html">googleplus.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/pinboard_html.html">pinboard.html</a>
+  
+    <li class="file"><a href="../source/_includes/asides/recent_posts_html.html">recent_posts.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/asides/about_html.html">about.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/category_feed_xml.html">category_feed.xml</a>
+  
+    <li class="file"><a href="../source/_includes/custom/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../source/_includes/custom/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../source/_includes/disqus_html.html">disqus.html</a>
+  
+    <li class="file"><a href="../source/_includes/facebook_like_html.html">facebook_like.html</a>
+  
+    <li class="file"><a href="../source/_includes/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../source/_includes/google_analytics_html.html">google_analytics.html</a>
+  
+    <li class="file"><a href="../source/_includes/google_plus_one_html.html">google_plus_one.html</a>
+  
+    <li class="file"><a href="../source/_includes/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../source/_includes/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../source/_includes/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/author_html.html">author.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/categories_html.html">categories.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/date_html.html">date.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/disqus_thread_html.html">disqus_thread.html</a>
+  
+    <li class="file"><a href="../source/_includes/post/sharing_html.html">sharing.html</a>
+  
+    <li class="file"><a href="../source/_includes/twitter_sharing_html.html">twitter_sharing.html</a>
+  
+    <li class="file"><a href="../source/_layouts/category_index_html.html">category_index.html</a>
+  
+    <li class="file"><a href="../source/_layouts/default_html.html">default.html</a>
+  
+    <li class="file"><a href="../source/_layouts/page_html.html">page.html</a>
+  
+    <li class="file"><a href="../source/_layouts/post_html.html">post.html</a>
+  
+    <li class="file"><a href="../source/_posts/2013-06-30-about-octopress_markdown.html">2013-06-30-about-octopress.markdown</a>
+  
+    <li class="file"><a href="../source/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../source/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../source/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../source/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../source/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../source/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../source/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../source/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../source/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../source/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../source/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../source/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../stylesheets/screen_css.html">screen.css</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../Jekyll/ContentFilters.html">Jekyll::ContentFilters</a>
+  
+    <li><a href="../Jekyll/Convertible.html">Jekyll::Convertible</a>
+  
+    <li><a href="../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../Jekyll/Layout.html">Jekyll::Layout</a>
+  
+    <li><a href="../Jekyll/Page.html">Jekyll::Page</a>
+  
+    <li><a href="../Jekyll/Pager.html">Jekyll::Pager</a>
+  
+    <li><a href="../Jekyll/Pagination.html">Jekyll::Pagination</a>
+  
+    <li><a href="../Jekyll/Post.html">Jekyll::Post</a>
+  
+    <li><a href="../Jekyll/PostFilter.html">Jekyll::PostFilter</a>
+  
+    <li><a href="../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../Jekyll/SitemapFile.html">Jekyll::SitemapFile</a>
+  
+    <li><a href="../Jekyll/SitemapGenerator.html">Jekyll::SitemapGenerator</a>
+  
+    <li><a href="../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../Liquid.html">Liquid</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../Octopress.html">Octopress</a>
+  
+    <li><a href="../Octopress/Date.html">Octopress::Date</a>
+  
+    <li><a href="../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>function getNav() {</p>
+
+<pre>var mainNav = $(&#39;ul.main-navigation, ul[role=main-navigation]&#39;).before(&#39;&lt;fieldset class=&quot;mobile-nav&quot;&gt;&#39;)
+var mobileNav = $(&#39;fieldset.mobile-nav&#39;).append(&#39;&lt;select&gt;&#39;);
+mobileNav.find(&#39;select&#39;).append(&#39;&lt;option value=&quot;&quot;&gt;Navigate&amp;hellip;&lt;/option&gt;&#39;);
+var addOption = function(i, option) {
+  mobileNav.find(&#39;select&#39;).append(&#39;&lt;option value=&quot;&#39; + this.href + &#39;&quot;&gt;&amp;raquo; &#39; + $(this).text() + &#39;&lt;/option&gt;&#39;);
+}
+mainNav.find(&#39;a&#39;).each(addOption);
+$(&#39;ul.subscription a&#39;).each(addOption);
+mobileNav.find(&#39;select&#39;).bind(&#39;change&#39;, function(event) {
+  if (event.target.value) { window.location.href = event.target.value; }
+});</pre>
+
+<p>}</p>
+
+<p>function addSidebarToggler() {</p>
+
+<pre>if(!$(&#39;body&#39;).hasClass(&#39;sidebar-footer&#39;)) {
+  $(&#39;#content&#39;).append(&#39;&lt;span class=&quot;toggle-sidebar&quot;&gt;&lt;/span&gt;&#39;);
+  $(&#39;.toggle-sidebar&#39;).bind(&#39;click&#39;, function(e) {
+    e.preventDefault();
+    if ($(&#39;body&#39;).hasClass(&#39;collapse-sidebar&#39;)) {
+      $(&#39;body&#39;).removeClass(&#39;collapse-sidebar&#39;);
+    } else {
+      $(&#39;body&#39;).addClass(&#39;collapse-sidebar&#39;);
+    }
+  });
+}
+var sections = $(&#39;aside.sidebar &gt; section&#39;);
+if (sections.length &gt; 1) {
+  sections.each(function(index, section){
+    if ((sections.length &gt;= 3) &amp;&amp; index % 3 === 0) {
+      $(section).addClass(&quot;first&quot;);
+    }
+    var count = ((index +1) % 2) ? &quot;odd&quot; : &quot;even&quot;;
+    $(section).addClass(count);
+  });
+}
+if (sections.length &gt;= 3){ $(&#39;aside.sidebar&#39;).addClass(&#39;thirds&#39;); }</pre>
+
+<p>}</p>
+
+<p>function testFeatures() {</p>
+
+<pre>var features = [&#39;maskImage&#39;];
+$(features).map(function(i, feature) {
+  if (Modernizr.testAllProps(feature)) {
+    $(&#39;html&#39;).addClass(feature);
+  } else {
+    $(&#39;html&#39;).addClass(&#39;no-&#39;+feature);
+  }
+});
+if (&quot;placeholder&quot; in document.createElement(&quot;input&quot;)) {
+  $(&#39;html&#39;).addClass(&#39;placeholder&#39;);
+} else {
+  $(&#39;html&#39;).addClass(&#39;no-placeholder&#39;);
+}</pre>
+
+<p>}</p>
+
+<p>function addCodeLineNumbers() {</p>
+
+<pre>if (navigator.appName === &#39;Microsoft Internet Explorer&#39;) { return; }
+$(&#39;div.gist-highlight&#39;).each(function(code) {
+  var tableStart = &#39;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&#39;,
+      lineNumbers = &#39;&lt;pre class=&quot;line-numbers&quot;&gt;&#39;,
+      tableMiddle = &#39;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&#39;,
+      tableEnd = &#39;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&#39;,
+      count = $(&#39;.line&#39;, code).length;
+  for (var i=1;i&lt;=count; i++) {
+    lineNumbers += &#39;&lt;span class=&quot;line-number&quot;&gt;&#39;+i+&#39;&lt;/span&gt;\n&#39;;
+  }
+  var table = tableStart + lineNumbers + tableMiddle + &#39;&lt;pre&gt;&#39;+$(&#39;pre&#39;, code).html()+&#39;&lt;/pre&gt;&#39; + tableEnd;
+  $(code).html(table);
+});</pre>
+
+<p>}</p>
+
+<p>function flashVideoFallback(){</p>
+
+<pre>var flashplayerlocation = &quot;/assets/jwplayer/player.swf&quot;,
+    flashplayerskin = &quot;/assets/jwplayer/glow/glow.xml&quot;;
+$(&#39;video&#39;).each(function(i, video){
+  video = $(video);
+  if (!Modernizr.video.h264 &amp;&amp; swfobject.getFlashPlayerVersion() || window.location.hash.indexOf(&quot;flash-test&quot;) !== -1){
+    video.children(&#39;source[src$=mp4]&#39;).first().map(i, function(source){
+      var src = $(source).attr(&#39;src&#39;),
+          id = &#39;video_&#39;+Math.round(1 + Math.random()*(100000)),
+          width = video.attr(&#39;width&#39;),
+          height = parseInt(video.attr(&#39;height&#39;), 10) + 30;
+          video.after(&#39;&lt;div class=&quot;flash-video&quot;&gt;&lt;div&gt;&lt;div id=&#39;+id+&#39;&gt;&#39;);
+      swfobject.embedSWF(flashplayerlocation, id, width, height + 30, &quot;9.0.0&quot;,
+        { file : src, image : video.attr(&#39;poster&#39;), skin : flashplayerskin } ,
+        { movie : src, wmode : &quot;opaque&quot;, allowfullscreen : &quot;true&quot; }
+      );
+    });
+    video.remove();
+  }
+});</pre>
+
+<p>}</p>
+
+<p>function wrapFlashVideos() {</p>
+
+<pre>$(&#39;object&#39;).each(function(i, object) {
+  if( $(object).find(&#39;param[name=movie]&#39;).length ){
+    $(object).wrap(&#39;&lt;div class=&quot;flash-video&quot;&gt;&#39;)
+  }
+});
+$(&#39;iframe[src*=vimeo],iframe[src*=youtube]&#39;).wrap(&#39;&lt;div class=&quot;flash-video&quot;&gt;&#39;)</pre>
+
+<p>}</p>
+
+<p>function renderDeliciousLinks(items) {</p>
+
+<pre>var output = &quot;&lt;ul&gt;&quot;;
+for (var i=0,l=items.length; i&lt;l; i++) {
+  output += &#39;&lt;li&gt;&lt;a href=&quot;&#39; + items[i].u + &#39;&quot; title=&quot;Tags: &#39; + (items[i].t == &quot;&quot; ? &quot;&quot; : items[i].t.join(&#39;, &#39;)) + &#39;&quot;&gt;&#39; + items[i].d + &#39;&lt;/a&gt;&lt;/li&gt;&#39;;
+}
+output += &quot;&lt;/ul&gt;&quot;;
+$(&#39;#delicious&#39;).html(output);</pre>
+
+<p>}</p>
+
+<p>$(&#39;document&#39;).ready(function() {</p>
+
+<pre>testFeatures();
+wrapFlashVideos();
+flashVideoFallback();
+addCodeLineNumbers();
+getNav();
+addSidebarToggler();</pre>
+
+<p>});</p>
+
+<p>// iOS scaling bug fix // Rewritten version // By @mathias, @cheeaun and
+@jdalton // Source url: <a
+href="https://gist.github.com/901295">gist.github.com/901295</a>
+(function(doc) {</p>
+
+<pre>var addEvent = &#39;addEventListener&#39;,
+    type = &#39;gesturestart&#39;,
+    qsa = &#39;querySelectorAll&#39;,
+    scales = [1, 1],
+    meta = qsa in doc ? doc[qsa](&#39;meta[name=viewport]&#39;) : [];
+function fix() {
+  meta.content = &#39;width=device-width,minimum-scale=&#39; + scales[0] + &#39;,maximum-scale=&#39; + scales[1];
+  doc.removeEventListener(type, fix, true);
+}
+if ((meta = meta[meta.length - 1]) &amp;&amp; addEvent in doc) {
+  fix();
+  scales = [0.25, 1.6];
+  doc[addEvent](type, fix, true);
+}</pre>
+
+<p>}(document));</p>
+
+<pre>!     SWFObject v2.2 modified by Brandon Mathis to contain only what is necessary to dynamically embed flash objects
+  Uncompressed source in javascripts/libs/swfobject-dynamic.js
+  &lt;http://code.google.com/p/swfobject/&gt;
+      released under the MIT License &lt;http://www.opensource.org/licenses/mit-license.php&gt;</pre>
+
+<p>var swfobject=function(){function s(a,b,d){var
+q,k=n(d);if(g.wk&amp;&amp;g.wk&lt;312)return q;if(k){if(typeof
+a.id==l)a.id=d;if(g.ie&amp;&amp;g.win){var e=“”,c;for(c in <a
+href="http://c">a)if(a</a>!=<a href="http://c">Object.prototype</a>)<a
+href="http://c">c.toLowerCase()==“data”?b.movie=a</a>:c.toLowerCase()==“styleclass”?e+=&#39;
+<a
+href="http://c">class=“‘+a</a>+&#39;”&#39;:c.toLowerCase()!=“classid”&amp;&amp;(e+=“
+”<code>c'="'+a[c]</code>+&#39;“&#39;);c=”“;for(var f in <a
+href="http://f">b)b</a>!=<a
+href="http://f">Object.prototype</a>&amp;&amp;(c+=&#39;&lt;param
+name=”&#39;<code>f</code>&#39;“ <a href="http://f">value=”’+b</a>+&#39;“
+/&gt;&#39;);k.outerHTML=&#39;&lt;object
+classid=”clsid:D27CDB6E-AE6D-11cf-96B8-444553540000“&#39;<code>e</code>”&gt;“<code>c</code>
+”&lt;/object&gt;“;q=n(a.id)}else{f=i.createElement(o);f.setAttribute(”type“,m);for(var
+h in <a href="http://h">a)a</a>!=<a
+href="http://h">Object.prototype</a>&amp;&amp;(<a
+href="http://h">h.toLowerCase()==”styleclass“?f.setAttribute(”class“,a</a>):<a
+href="http://h">h.toLowerCase()!=”classid“&&f.setAttribute(h,a</a>));for(e
+in <a href="http://e">b)b</a>!=<a
+href="http://e">Object.prototype</a>&amp;&amp;<a
+href="http://e">e.toLowerCase()!=”movie“&&(a=f,c=e,h=b</a>,d=i.createElement(”param“),d.setAttribute(”name“,c),d.setAttribute(”value“,h),a.appendChild(d));k.parentNode.replaceChild(f,k);q=f}}return
+q}function n(a){var b=null;try{b=i.getElementById(a)}catch(d){}return b}
+function t(a){var <a href="http://0">b=g.pv,a=a.split(”.“);a</a>=<a
+href="http://0">parseInt(a</a>,<a href="http://1">10);a</a>=<a
+href="http://1">parseInt(a</a>,<a href="http://2">10)||0;a</a>=<a
+href="http://2">parseInt(a</a>,10)||0;return <a href="http://0">b</a>&gt;<a
+href="http://0">a</a>||<a href="http://0">b</a>==<a
+href="http://0">a</a>&amp;&amp;<a href="http://1">b</a>&gt;<a
+href="http://1">a</a>||<a href="http://0">b</a>==<a
+href="http://0">a</a>&amp;&amp;<a href="http://1">b</a>==<a
+href="http://1">a</a>&amp;&amp;<a href="http://2">b</a>&gt;=<a
+href="http://2">a</a>?!0:!1}function u(a){<a
+href="http://\\\"<>.;”>return/</a>/.exec(a)!=null&amp;&amp;typeof
+encodeURIComponent!=l?encodeURIComponent(a):a}var
+l=“undefined”,o=“object”,m=“application/x-shockwave-flash”,v=window,i=document,j=navigator,g=function(){var
+a=typeof i.getElementById!=l&amp;&amp;typeof
+i.getElementsByTagName!=l&amp;&amp;typeof i.createElement!=l, <a
+href="http://0,0,0">b=j.userAgent.toLowerCase(),d=j.platform.toLowerCase(),g=d?/win/.test(d):/win/.test(b),d=d?/mac/.test(d):/mac/.test(b),b=/webkit/.test(b)?parseFloat(b.replace(/^.*webkit/(d+(.d+)?).*$/,“$1”)):!1,k=!+“u000b1”,e=</a>,c=null;if(typeof
+j.plugins!=l&amp;&amp;typeof j.plugins[“Shockwave
+Flash”]==o){if((c=j.plugins[“Shockwave
+Flash”].description)&amp;&amp;!(typeof <a
+href="http://m">j.mimeTypes!=l&&j.mimeTypes</a>&amp;&amp;!<a
+href="http://m">j.mimeTypes</a>.<a
+href="http://0">enabledPlugin))k=!1,c=c.replace(/^.*s+(S+s+S+$)/,“$1”),e</a>=parseInt(c.replace(/^(.*)..*$/,“$1”),
+<a href="http://1">10),e</a>=<a
+href="http://2">parseInt(c.replace(/^.*.(.*)s.*$/,“$1”),10),e</a>=/[<a
+href="http://a-zA-Z">a-zA-Z]/.test©?parseInt(c.replace(/^.*</a>+(.*)$/,“$1”),10):0}else
+if(typeof v.ActiveXObject!=l)try{var f=new
+ActiveXObject(“ShockwaveFlash.ShockwaveFlash”);if(f&amp;&amp;(c=f.GetVariable(“$version”)))k=!0,c=c.split(“
+”)[<a href="http://0">1].split(“,”),e=[parseInt(c</a>,<a
+href="http://1">10),parseInt(c</a>,<a
+href="http://2">10),parseInt(c</a>,10)]}catch(h){}return{w3:a,pv:e,wk:b,ie:k,win:g,mac:d}}();return{embedSWF:function(a,b,d,i,k,e,c,f,h){var
+j={success:!1,id:b};if(g.w3&amp;&amp;!(g.wk&amp;&amp;g.wk&lt;312)&amp;&amp;
+a&amp;&amp;b&amp;&amp;d&amp;&amp;i&amp;&amp;k){d+=“”;i+=“”;var
+p={};if(f&amp;&amp;typeof f===o)for(var m in <a href="http://m">f)p</a>=<a
+href="http://m">f</a>;p.data=a;p.width=d;p.height=i;a={};if(c&amp;&amp;typeof
+c===o)for(var n in <a href="http://n">c)a</a>=<a
+href="http://n">c</a>;if(e&amp;&amp;typeof e===o)for(var r in e)typeof <a
+href="http://r">a.flashvars!=l?a.flashvars+=“&”r“=”+e</a>:<a
+href="http://r">a.flashvars=r+“=”+e</a>;if(t(k))b=s(p,a,b),j.success=!0,j.ref=b}h&amp;&amp;h(j)},ua:g,getFlashPlayerVersion:function(){return{<a
+href="http://0">major:g.pv</a>,<a href="http://1">minor:g.pv</a>,<a
+href="http://2">release:g.pv</a>}},hasFlashPlayerVersion:t,createSWF:function(a,b,d){if(g.w3)return
+s(a,b,d)},getQueryParamValue:function(a){var b=
+i.location.search||i.location.hash;if(b){/?/.<a
+href="http://1">test(b)&&(b=b.split(“?”)</a>);if(a==null)return
+u(b);for(var <a
+href="http://d">b=b.split(“&”),d=0;d<b.length;d++)if(b</a>.<a
+href="http://d">substring(0,b</a>.indexOf(“=”))==a)return <a
+href="http://d">u(b</a>.<a
+href="http://d">substring(b</a>.indexOf(“=”)+1))}return“”}}}();</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

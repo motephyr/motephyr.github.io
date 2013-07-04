@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Rakefile - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="./README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./_deploy/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="./_deploy/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="./_deploy/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./_deploy/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./_deploy/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="./_deploy/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="./_deploy/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="./_deploy/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="./_deploy/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="./assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="./atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="./blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./blog/2013/06/30/guan-yu-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./blog/2013/06/30/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="./index_html.html">index.html</a>
+  
+    <li class="file"><a href="./javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="./javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="./javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="./javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="./javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="./javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="./javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="./javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="./public/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="./public/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="./public/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./public/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./public/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./public/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="./public/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="./public/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="./public/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="./public/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="./public/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="./public/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="./public/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="./public/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="./public/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="./robots_txt.html">robots</a>
+  
+    <li class="file"><a href="./sass/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="./sass/_partials_scss.html">_partials.scss</a>
+  
+    <li class="file"><a href="./sass/base/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="./sass/base/_solarized_scss.html">_solarized.scss</a>
+  
+    <li class="file"><a href="./sass/base/_theme_scss.html">_theme.scss</a>
+  
+    <li class="file"><a href="./sass/base/_typography_scss.html">_typography.scss</a>
+  
+    <li class="file"><a href="./sass/base/_utilities_scss.html">_utilities.scss</a>
+  
+    <li class="file"><a href="./sass/custom/_colors_scss.html">_colors.scss</a>
+  
+    <li class="file"><a href="./sass/custom/_fonts_scss.html">_fonts.scss</a>
+  
+    <li class="file"><a href="./sass/custom/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="./sass/custom/_styles_scss.html">_styles.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_archive_scss.html">_archive.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_blog_scss.html">_blog.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_footer_scss.html">_footer.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_header_scss.html">_header.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_navigation_scss.html">_navigation.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_sharing_scss.html">_sharing.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_sidebar_scss.html">_sidebar.scss</a>
+  
+    <li class="file"><a href="./sass/partials/_syntax_scss.html">_syntax.scss</a>
+  
+    <li class="file"><a href="./sass/partials/sidebar/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="./sass/partials/sidebar/_delicious_scss.html">_delicious.scss</a>
+  
+    <li class="file"><a href="./sass/partials/sidebar/_googleplus_scss.html">_googleplus.scss</a>
+  
+    <li class="file"><a href="./sass/partials/sidebar/_pinboard_scss.html">_pinboard.scss</a>
+  
+    <li class="file"><a href="./sass/plugins/_plugins_scss.html">_plugins.scss</a>
+  
+    <li class="file"><a href="./sass/screen_scss.html">screen.scss</a>
+  
+    <li class="file"><a href="./sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="./source/_includes/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="./source/_includes/archive_post_html.html">archive_post.html</a>
+  
+    <li class="file"><a href="./source/_includes/article_html.html">article.html</a>
+  
+    <li class="file"><a href="./source/_includes/asides/delicious_html.html">delicious.html</a>
+  
+    <li class="file"><a href="./source/_includes/asides/github_html.html">github.html</a>
+  
+    <li class="file"><a href="./source/_includes/asides/googleplus_html.html">googleplus.html</a>
+  
+    <li class="file"><a href="./source/_includes/asides/pinboard_html.html">pinboard.html</a>
+  
+    <li class="file"><a href="./source/_includes/asides/recent_posts_html.html">recent_posts.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/asides/about_html.html">about.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/category_feed_xml.html">category_feed.xml</a>
+  
+    <li class="file"><a href="./source/_includes/custom/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/head_html.html">head.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/header_html.html">header.html</a>
+  
+    <li class="file"><a href="./source/_includes/custom/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="./source/_includes/disqus_html.html">disqus.html</a>
+  
+    <li class="file"><a href="./source/_includes/facebook_like_html.html">facebook_like.html</a>
+  
+    <li class="file"><a href="./source/_includes/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="./source/_includes/google_analytics_html.html">google_analytics.html</a>
+  
+    <li class="file"><a href="./source/_includes/google_plus_one_html.html">google_plus_one.html</a>
+  
+    <li class="file"><a href="./source/_includes/head_html.html">head.html</a>
+  
+    <li class="file"><a href="./source/_includes/header_html.html">header.html</a>
+  
+    <li class="file"><a href="./source/_includes/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="./source/_includes/post/author_html.html">author.html</a>
+  
+    <li class="file"><a href="./source/_includes/post/categories_html.html">categories.html</a>
+  
+    <li class="file"><a href="./source/_includes/post/date_html.html">date.html</a>
+  
+    <li class="file"><a href="./source/_includes/post/disqus_thread_html.html">disqus_thread.html</a>
+  
+    <li class="file"><a href="./source/_includes/post/sharing_html.html">sharing.html</a>
+  
+    <li class="file"><a href="./source/_includes/twitter_sharing_html.html">twitter_sharing.html</a>
+  
+    <li class="file"><a href="./source/_layouts/category_index_html.html">category_index.html</a>
+  
+    <li class="file"><a href="./source/_layouts/default_html.html">default.html</a>
+  
+    <li class="file"><a href="./source/_layouts/page_html.html">page.html</a>
+  
+    <li class="file"><a href="./source/_layouts/post_html.html">post.html</a>
+  
+    <li class="file"><a href="./source/_posts/2013-06-30-about-octopress_markdown.html">2013-06-30-about-octopress.markdown</a>
+  
+    <li class="file"><a href="./source/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="./source/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="./source/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./source/index_html.html">index.html</a>
+  
+    <li class="file"><a href="./source/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="./source/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="./source/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="./source/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="./source/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="./source/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="./source/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="./source/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="./source/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="./source/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="./stylesheets/screen_css.html">screen.css</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="./ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="./HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="./Jekyll.html">Jekyll</a>
+  
+    <li><a href="./Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="./Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="./Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="./Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="./Jekyll/ContentFilters.html">Jekyll::ContentFilters</a>
+  
+    <li><a href="./Jekyll/Convertible.html">Jekyll::Convertible</a>
+  
+    <li><a href="./Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="./Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="./Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="./Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="./Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="./Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="./Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="./Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="./Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="./Jekyll/Layout.html">Jekyll::Layout</a>
+  
+    <li><a href="./Jekyll/Page.html">Jekyll::Page</a>
+  
+    <li><a href="./Jekyll/Pager.html">Jekyll::Pager</a>
+  
+    <li><a href="./Jekyll/Pagination.html">Jekyll::Pagination</a>
+  
+    <li><a href="./Jekyll/Post.html">Jekyll::Post</a>
+  
+    <li><a href="./Jekyll/PostFilter.html">Jekyll::PostFilter</a>
+  
+    <li><a href="./Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="./Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="./Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="./Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="./Jekyll/SitemapFile.html">Jekyll::SitemapFile</a>
+  
+    <li><a href="./Jekyll/SitemapGenerator.html">Jekyll::SitemapGenerator</a>
+  
+    <li><a href="./Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="./Liquid.html">Liquid</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Octopress.html">Octopress</a>
+  
+    <li><a href="./Octopress/Date.html">Octopress::Date</a>
+  
+    <li><a href="./OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="./OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="./RubyPants.html">RubyPants</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>require “rubygems” require “bundler/setup” require “stringex”</p>
+
+<p>## – Rsync Deploy config – ## # Be sure your public key is listed in your
+server&#39;s ~/.ssh/authorized_keys file ssh_user       = “user@domain.com”
+ssh_port       = “22” document_root  = “~/website.com/” rsync_delete   =
+false rsync_args     = “”  # Any extra arguments to pass to rsync
+deploy_default = “push”</p>
+
+<p># This will be configured for you when you run config_deploy deploy_branch 
+= “master”</p>
+
+<p>## – Misc Configs – ##</p>
+
+<p>public_dir      = “public”    # compiled site directory source_dir      =
+“source”    # source file directory blog_index_dir  = &#39;source&#39;    #
+directory for your blog&#39;s index page (if you put your index in
+source/blog/index.html, set this to &#39;source/blog&#39;) deploy_dir     
+= “_deploy”   # deploy directory (for Github pages deployment) stash_dir   
+= “_stash”    # directory to stash posts for speedy generation posts_dir   
+= “_posts”    # directory for blog files themes_dir      = “.themes”   #
+directory for blog files new_post_ext    = “markdown”  # default new post
+file extension when using the new_post task new_page_ext    = “markdown”  #
+default new page file extension when using the new_page task server_port   
+= “4000”      # port for preview server eg. localhost:4000</p>
+
+<p>desc “Initial setup for Octopress: copies the default theme into the path
+of Jekyll&#39;s generator. Rake install defaults to rake <a
+href="http://classic">install</a> to install a different theme run rake <a
+href="http://some_theme_name">install</a>” task :install, :theme do |t,
+args|</p>
+
+<pre>if File.directory?(source_dir) || File.directory?(&quot;sass&quot;)
+  abort(&quot;rake aborted!&quot;) if ask(&quot;A theme is already installed, proceeding will overwrite existing files. Are you sure?&quot;, [&#39;y&#39;, &#39;n&#39;]) == &#39;n&#39;
+end
+# copy theme into working Jekyll directories
+theme = args.theme || &#39;classic&#39;
+puts &quot;## Copying &quot;+theme+&quot; theme into ./#{source_dir} and ./sass&quot;
+mkdir_p source_dir
+cp_r &quot;#{themes_dir}/#{theme}/source/.&quot;, source_dir
+mkdir_p &quot;sass&quot;
+cp_r &quot;#{themes_dir}/#{theme}/sass/.&quot;, &quot;sass&quot;
+mkdir_p &quot;#{source_dir}/#{posts_dir}&quot;
+mkdir_p public_dir</pre>
+
+<p>end</p>
+
+<p>####################### # Working with <a href="Jekyll.html">Jekyll</a> #
+#######################</p>
+
+<p>desc “Generate jekyll site” task :generate do</p>
+
+<pre>raise &quot;### You haven&#39;t set anything up yet. First run `rake install` to set up an Octopress theme.&quot; unless File.directory?(source_dir)
+puts &quot;## Generating Site with Jekyll&quot;
+system &quot;compass compile --css-dir #{source_dir}/stylesheets&quot;
+system &quot;jekyll&quot;</pre>
+
+<p>end</p>
+
+<p>desc “Watch the site and regenerate when it changes” task :watch do</p>
+
+<pre class="ruby"><span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;### You haven&#39;t set anything up yet. First run `rake install` to set up an Octopress theme.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">source_dir</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Starting to watch source with Jekyll and Compass.&quot;</span>
+<span class="ruby-identifier">system</span> <span class="ruby-node">&quot;compass compile --css-dir #{source_dir}/stylesheets&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-node">&quot;#{source_dir}/stylesheets/screen.css&quot;</span>)
+<span class="ruby-identifier">jekyllPid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>({<span class="ruby-string">&quot;OCTOPRESS_ENV&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;preview&quot;</span>}, <span class="ruby-string">&quot;jekyll --auto&quot;</span>)
+<span class="ruby-identifier">compassPid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>(<span class="ruby-string">&quot;compass watch&quot;</span>)
+
+<span class="ruby-identifier">trap</span>(<span class="ruby-string">&quot;INT&quot;</span>) {
+  [<span class="ruby-identifier">jekyllPid</span>, <span class="ruby-identifier">compassPid</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pid</span><span class="ruby-operator">|</span> <span class="ruby-constant">Process</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-value">9</span>, <span class="ruby-identifier">pid</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ESRCH</span> }
+  <span class="ruby-identifier">exit</span> <span class="ruby-value">0</span>
+}
+
+[<span class="ruby-identifier">jekyllPid</span>, <span class="ruby-identifier">compassPid</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pid</span><span class="ruby-operator">|</span> <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-identifier">pid</span>) }
+</pre>
+
+<p>end</p>
+
+<p>desc “preview the site in a web browser” task :preview do</p>
+
+<pre class="ruby"><span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;### You haven&#39;t set anything up yet. First run `rake install` to set up an Octopress theme.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">source_dir</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}&quot;</span>
+<span class="ruby-identifier">system</span> <span class="ruby-node">&quot;compass compile --css-dir #{source_dir}/stylesheets&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-node">&quot;#{source_dir}/stylesheets/screen.css&quot;</span>)
+<span class="ruby-identifier">jekyllPid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>({<span class="ruby-string">&quot;OCTOPRESS_ENV&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;preview&quot;</span>}, <span class="ruby-string">&quot;jekyll --auto&quot;</span>)
+<span class="ruby-identifier">compassPid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>(<span class="ruby-string">&quot;compass watch&quot;</span>)
+<span class="ruby-identifier">rackupPid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>(<span class="ruby-node">&quot;rackup --port #{server_port}&quot;</span>)
+
+<span class="ruby-identifier">trap</span>(<span class="ruby-string">&quot;INT&quot;</span>) {
+  [<span class="ruby-identifier">jekyllPid</span>, <span class="ruby-identifier">compassPid</span>, <span class="ruby-identifier">rackupPid</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pid</span><span class="ruby-operator">|</span> <span class="ruby-constant">Process</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-value">9</span>, <span class="ruby-identifier">pid</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ESRCH</span> }
+  <span class="ruby-identifier">exit</span> <span class="ruby-value">0</span>
+}
+
+[<span class="ruby-identifier">jekyllPid</span>, <span class="ruby-identifier">compassPid</span>, <span class="ruby-identifier">rackupPid</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pid</span><span class="ruby-operator">|</span> <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-identifier">pid</span>) }
+</pre>
+
+<p>end</p>
+
+<p># usage rake <a href="http://my-new-post">new_post</a> or rake
+new_post[&#39;my new post&#39;] or rake new_post (defaults to “new-post”)
+desc “Begin a new post in #{source_dir}/#{posts_dir}” task :new_post,
+:title do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">title</span>
+  <span class="ruby-identifier">title</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">title</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">title</span> = <span class="ruby-identifier">get_stdin</span>(<span class="ruby-string">&quot;Enter a title for your post: &quot;</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;### You haven&#39;t set anything up yet. First run `rake install` to set up an Octopress theme.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">source_dir</span>)
+<span class="ruby-identifier">mkdir_p</span> <span class="ruby-node">&quot;#{source_dir}/#{posts_dir}&quot;</span>
+<span class="ruby-identifier">filename</span> = <span class="ruby-node">&quot;#{source_dir}/#{posts_dir}/#{Time.now.strftime(&#39;%Y-%m-%d&#39;)}-#{title.to_url}.#{new_post_ext}&quot;</span>
+<span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">abort</span>(<span class="ruby-string">&quot;rake aborted!&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;#{filename} already exists. Do you want to overwrite?&quot;</span>, [<span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;n&#39;</span>]) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;n&#39;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Creating new post: #{filename}&quot;</span>
+<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">post</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---&quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;layout: post&quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;title: \&quot;#{title.gsub(/&amp;/,&#39;&amp;amp;&#39;)}\&quot;&quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;date: #{Time.now.strftime(&#39;%Y-%m-%d %H:%M&#39;)}&quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;comments: true&quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;categories: &quot;</span>
+  <span class="ruby-identifier">post</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p># usage rake <a href="http://my-new-page">new_page</a> or rake <a
+href="http://my-new-page.html">new_page</a> or rake new_page (defaults to
+“new-page.markdown”) desc “Create a new page in
+#{source_dir}/(filename)/index.#{new_page_ext}” task :new_page, :filename
+do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;### You haven&#39;t set anything up yet. First run `rake install` to set up an Octopress theme.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">source_dir</span>)
+<span class="ruby-identifier">args</span>.<span class="ruby-identifier">with_defaults</span>(:<span class="ruby-identifier">filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;new-page&#39;</span>)
+<span class="ruby-identifier">page_dir</span> = [<span class="ruby-identifier">source_dir</span>]
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">filename</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(^.+\/)?(.+)/</span>
+  <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">dot</span>, <span class="ruby-identifier">extension</span> = <span class="ruby-node">$2</span>.<span class="ruby-identifier">rpartition</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">empty?</span>)         <span class="ruby-comment"># Get filename and extension</span>
+  <span class="ruby-identifier">title</span> = <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">page_dir</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-node">$1</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^\//</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">nil?</span>  <span class="ruby-comment"># Add path to page_dir Array</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">extension</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">page_dir</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filename</span>
+    <span class="ruby-identifier">filename</span> = <span class="ruby-string">&quot;index&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">extension</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">new_page_ext</span>
+  <span class="ruby-identifier">page_dir</span> = <span class="ruby-identifier">page_dir</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span> = <span class="ruby-identifier">d</span>.<span class="ruby-identifier">to_url</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;/&#39;</span>)                <span class="ruby-comment"># Sanitize path</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_url</span>
+
+  <span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">page_dir</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-node">&quot;#{page_dir}/#{filename}.#{extension}&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-identifier">abort</span>(<span class="ruby-string">&quot;rake aborted!&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ask</span>(<span class="ruby-node">&quot;#{file} already exists. Do you want to overwrite?&quot;</span>, [<span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;n&#39;</span>]) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;n&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Creating new page: #{file}&quot;</span>
+  <span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">page</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;layout: page&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;title: \&quot;#{title}\&quot;&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;date: #{Time.now.strftime(&#39;%Y-%m-%d %H:%M&#39;)}&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;comments: true&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;sharing: true&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;footer: true&quot;</span>
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;---&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Syntax error: #{args.filename} contains unsupported characters&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p># usage rake <a href="http://my-post">isolate</a> desc “Move all other
+posts than the one currently being worked on to a temporary stash location
+(stash) so regenerating the site happens much more quickly.” task :isolate,
+:filename do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-identifier">stash_dir</span> = <span class="ruby-node">&quot;#{source_dir}/#{stash_dir}&quot;</span>
+<span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">stash_dir</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">stash_dir</span>)
+<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{source_dir}/#{posts_dir}  .*&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">post</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mv</span> <span class="ruby-identifier">post</span>, <span class="ruby-identifier">stash_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">post</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">filename</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p>desc “Move all stashed posts back into the posts directory, ready for site
+generation.” task :integrate do</p>
+
+<pre>FileUtils.mv Dir.glob(&quot;#{source_dir}/#{stash_dir}  .*&quot;), &quot;#{source_dir}/#{posts_dir}/&quot;</pre>
+
+<p>end</p>
+
+<p>desc “Clean out caches: .pygments-cache, .gist-cache, .sass-cache” task
+:clean do</p>
+
+<pre>rm_rf [&quot;.pygments-cache/**&quot;, &quot;.gist-cache/**&quot;, &quot;.sass-cache/**&quot;, &quot;source/stylesheets/screen.css&quot;]</pre>
+
+<p>end</p>
+
+<p>desc “Move sass to sass.old, install sass theme updates, replace
+sass/custom with sass.old/custom” task :update_style, :theme do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-identifier">theme</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">theme</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;classic&#39;</span>
+<span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-string">&quot;sass.old&quot;</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;removed existing sass.old directory&quot;</span>
+  <span class="ruby-identifier">rm_r</span> <span class="ruby-string">&quot;sass.old&quot;</span>, :<span class="ruby-identifier">secure=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">mv</span> <span class="ruby-string">&quot;sass&quot;</span>, <span class="ruby-string">&quot;sass.old&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Moved styles into sass.old/&quot;</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-node">&quot;#{themes_dir}/&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">theme</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/sass/&quot;</span>, <span class="ruby-string">&quot;sass&quot;</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-string">&quot;sass.old/custom/.&quot;</span>, <span class="ruby-string">&quot;sass/custom&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Updated Sass ##&quot;</span>
+</pre>
+
+<p>end</p>
+
+<p>desc “Move source to source.old, install source theme updates, replace <a
+href="source/_includes/navigation_html.html">source/_includes/navigation.html</a>
+with source.old&#39;s navigation” task :update_source, :theme do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-identifier">theme</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">theme</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;classic&#39;</span>
+<span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-node">&quot;#{source_dir}.old&quot;</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Removed existing #{source_dir}.old directory&quot;</span>
+  <span class="ruby-identifier">rm_r</span> <span class="ruby-node">&quot;#{source_dir}.old&quot;</span>, :<span class="ruby-identifier">secure=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">mkdir</span> <span class="ruby-node">&quot;#{source_dir}.old&quot;</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-node">&quot;#{source_dir}/.&quot;</span>, <span class="ruby-node">&quot;#{source_dir}.old&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Copied #{source_dir} into #{source_dir}.old/&quot;</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-node">&quot;#{themes_dir}/&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">theme</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/source/.&quot;</span>, <span class="ruby-identifier">source_dir</span>, :<span class="ruby-identifier">remove_destination=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-node">&quot;#{source_dir}.old/_includes/custom/.&quot;</span>, <span class="ruby-node">&quot;#{source_dir}/_includes/custom/&quot;</span>, :<span class="ruby-identifier">remove_destination=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span>
+<span class="ruby-identifier">cp</span> <span class="ruby-node">&quot;#{source_dir}.old/favicon.png&quot;</span>, <span class="ruby-identifier">source_dir</span>
+<span class="ruby-identifier">mv</span> <span class="ruby-node">&quot;#{source_dir}/index.html&quot;</span>, <span class="ruby-node">&quot;#{blog_index_dir}&quot;</span>, :<span class="ruby-identifier">force=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">blog_index_dir</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">source_dir</span>
+<span class="ruby-identifier">cp</span> <span class="ruby-node">&quot;#{source_dir}.old/index.html&quot;</span>, <span class="ruby-identifier">source_dir</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">blog_index_dir</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">source_dir</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-node">&quot;#{source_dir}.old/index.html&quot;</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Updated #{source_dir} ##&quot;</span>
+</pre>
+
+<p>end</p>
+
+<p>############## # Deploying  # ##############</p>
+
+<p>desc “Default deploy task” task :deploy do</p>
+
+<pre># Check if preview posts exist, which should not be published
+if File.exists?(&quot;.preview-mode&quot;)
+  puts &quot;## Found posts in preview mode, regenerating files ...&quot;
+  File.delete(&quot;.preview-mode&quot;)
+  Rake::Task[:generate].execute
+end
+
+Rake::Task[:copydot].invoke(source_dir, public_dir)
+Rake::Task[&quot;#{deploy_default}&quot;].execute</pre>
+
+<p>end</p>
+
+<p>desc “Generate website and deploy” task :gen_deploy =&gt; [:integrate,
+:generate, :deploy] do end</p>
+
+<p>desc “copy dot files for deployment” task :copydot, :source, :dest do |t,
+args|</p>
+
+<pre class="ruby"><span class="ruby-constant">FileList</span>[<span class="ruby-node">&quot;#{args.source}/   .*&quot;</span>].<span class="ruby-identifier">exclude</span>(<span class="ruby-string">&quot;   .&quot;</span>, <span class="ruby-string">&quot;**/..&quot;</span>, <span class="ruby-string">&quot;**/.DS_Store&quot;</span>, <span class="ruby-string">&quot;**/._*&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">cp_r</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/#{args.source}/</span>, <span class="ruby-node">&quot;#{args.dest}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p>desc “Deploy website via rsync” task :rsync do</p>
+
+<pre>exclude = &quot;&quot;
+if File.exists?(&#39;./rsync-exclude&#39;)
+  exclude = &quot;--exclude-from &#39;#{File.expand_path(&#39;./rsync-exclude&#39;)}&#39;&quot;
+end
+puts &quot;## Deploying website via Rsync&quot;
+ok_failed system(&quot;rsync -avze &#39;ssh -p #{ssh_port}&#39; #{exclude} #{rsync_args} #{&quot;--delete&quot; unless rsync_delete == false} #{public_dir}/ #{ssh_user}:#{document_root}&quot;)</pre>
+
+<p>end</p>
+
+<p>desc “deploy public directory to github pages” multitask :push do</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Deploying branch to Github Pages &quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Pulling any updates from Github Pages &quot;</span>
+<span class="ruby-identifier">cd</span> <span class="ruby-node">&quot;#{deploy_dir}&quot;</span> <span class="ruby-keyword">do</span> 
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git pull&quot;</span>
+<span class="ruby-keyword">end</span>
+(<span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{deploy_dir}/*&quot;</span>]).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">f</span>) }
+<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[:<span class="ruby-identifier">copydot</span>].<span class="ruby-identifier">invoke</span>(<span class="ruby-identifier">public_dir</span>, <span class="ruby-identifier">deploy_dir</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n## Copying #{public_dir} to #{deploy_dir}&quot;</span>
+<span class="ruby-identifier">cp_r</span> <span class="ruby-node">&quot;#{public_dir}/.&quot;</span>, <span class="ruby-identifier">deploy_dir</span>
+<span class="ruby-identifier">cd</span> <span class="ruby-node">&quot;#{deploy_dir}&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git add -A&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n## Commiting: Site updated at #{Time.now.utc}&quot;</span>
+  <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Site updated at #{Time.now.utc}&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;git commit -m \&quot;#{message}\&quot;&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n## Pushing generated #{deploy_dir} website&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;git push origin #{deploy_branch}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n## Github Pages deploy complete&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p>desc “Update configurations to support publishing to root or sub directory”
+task :set_root_dir, :dir do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&gt;&gt;&gt; !! Please provide a directory, eg. rake config_dir[publishing/subdirectory]&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dir</span>
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dir</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dir</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span>
+    <span class="ruby-identifier">dir</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">dir</span> = <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dir</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/(\/*)(.+)/</span>, <span class="ruby-string">&quot;\\2&quot;</span>).<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\/$/</span>, <span class="ruby-string">&#39;&#39;</span>);
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rakefile</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-keyword">__FILE__</span>)
+  <span class="ruby-identifier">rakefile</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/public_dir(\s*)=(\s*)([&quot;&#39;])[\w\-\/]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;public_dir\\1=\\2\\3public#{dir}\\3&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-keyword">__FILE__</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">rakefile</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">compass_config</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;config.rb&#39;</span>)
+  <span class="ruby-identifier">compass_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/http_path(\s*)=(\s*)([&quot;&#39;])[\w\-\/]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;http_path\\1=\\2\\3#{dir}/\\3&quot;</span>)
+  <span class="ruby-identifier">compass_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/http_images_path(\s*)=(\s*)([&quot;&#39;])[\w\-\/]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;http_images_path\\1=\\2\\3#{dir}/images\\3&quot;</span>)
+  <span class="ruby-identifier">compass_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/http_fonts_path(\s*)=(\s*)([&quot;&#39;])[\w\-\/]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;http_fonts_path\\1=\\2\\3#{dir}/fonts\\3&quot;</span>)
+  <span class="ruby-identifier">compass_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/css_dir(\s*)=(\s*)([&quot;&#39;])[\w\-\/]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;css_dir\\1=\\2\\3public#{dir}/stylesheets\\3&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;config.rb&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">compass_config</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">jekyll_config</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;_config.yml&#39;</span>)
+  <span class="ruby-identifier">jekyll_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/^destination:.+$/</span>, <span class="ruby-node">&quot;destination: public#{dir}&quot;</span>)
+  <span class="ruby-identifier">jekyll_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/^subscribe_rss:\s*\/.+$/</span>, <span class="ruby-node">&quot;subscribe_rss: #{dir}/atom.xml&quot;</span>)
+  <span class="ruby-identifier">jekyll_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/^root:.*$/</span>, <span class="ruby-node">&quot;root: /#{dir.sub(/^\//, &#39;&#39;)}&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;_config.yml&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">jekyll_config</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">public_dir</span>
+  <span class="ruby-identifier">mkdir_p</span> <span class="ruby-node">&quot;#{public_dir}#{dir}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;## Site&#39;s root directory is now &#39;/#{dir.sub(/^\//, &#39;&#39;)}&#39; ##&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p>desc “Set up _deploy folder and deploy branch for Github Pages deployment”
+task :setup_github_pages, :repo do |t, args|</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">repo</span>
+  <span class="ruby-identifier">repo_url</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">repo</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Enter the read/write url for your repository&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;(For example, &#39;git@github.com:your_username/your_username.github.io)&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;           or &#39;https://github.com/your_username/your_username.github.io&#39;)&quot;</span>
+  <span class="ruby-identifier">repo_url</span> = <span class="ruby-identifier">get_stdin</span>(<span class="ruby-string">&quot;Repository url: &quot;</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">protocol</span> = (<span class="ruby-identifier">repo_url</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(^git)@/</span>).<span class="ruby-identifier">nil?</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;https&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;git&#39;</span>
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">protocol</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;git&#39;</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">repo_url</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/:([^\/]+)/</span>)[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">repo_url</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/github\.com\/([^\/]+)/</span>)[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">branch</span> = (<span class="ruby-identifier">repo_url</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\/[\w-]+\.github\.(?:io|com)/</span>).<span class="ruby-identifier">nil?</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;gh-pages&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;master&#39;</span>
+<span class="ruby-identifier">project</span> = (<span class="ruby-identifier">branch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;gh-pages&#39;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">repo_url</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\/([^\.]+)/</span>)[<span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-keyword">unless</span> (<span class="ruby-value">%xgit remote -v`</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/origin.+?octopress(?:\.git)?/</span>).<span class="ruby-identifier">nil?</span>
+  <span class="ruby-comment"># If octopress is still the origin remote (from cloning) rename it to octopress</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git remote rename origin octopress&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">branch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;master&#39;</span>
+    <span class="ruby-comment"># If this is a user/organization pages repository, add the correct origin remote</span>
+    <span class="ruby-comment"># and checkout the source branch for committing changes to the blog source.</span>
+    <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;git remote add origin #{repo_url}&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Added remote #{repo_url} as origin&quot;</span>
+    <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git config branch.master.remote origin&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Set origin as default remote&quot;</span>
+    <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git branch -m master source&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Master branch renamed to &#39;source&#39; for committing your blog source files&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">public_dir</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">&quot;#{project}&quot;</span>).<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;rake set_root_dir[#{project}]&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;http://#{user}.github.io&quot;</span>
+<span class="ruby-identifier">url</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;/#{project}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">project</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-identifier">jekyll_config</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;_config.yml&#39;</span>)
+<span class="ruby-identifier">jekyll_config</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/^url:.*$/</span>, <span class="ruby-node">&quot;url: #{url}&quot;</span>)
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;_config.yml&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">jekyll_config</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">deploy_dir</span>
+<span class="ruby-identifier">mkdir</span> <span class="ruby-identifier">deploy_dir</span>
+<span class="ruby-identifier">cd</span> <span class="ruby-node">&quot;#{deploy_dir}&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git init&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;echo &#39;My Octopress Page is coming soon &amp;hellip;&#39; &gt; index.html&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git add .&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git commit -m \&quot;Octopress init\&quot;&quot;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-string">&quot;git branch -m gh-pages&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">branch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;master&#39;</span>
+  <span class="ruby-identifier">system</span> <span class="ruby-node">&quot;git remote add origin #{repo_url}&quot;</span>
+  <span class="ruby-identifier">rakefile</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-keyword">__FILE__</span>)
+  <span class="ruby-identifier">rakefile</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/deploy_branch(\s*)=(\s*)([&quot;&#39;])[\w-]*[&quot;&#39;]/</span>, <span class="ruby-node">&quot;deploy_branch\\1=\\2\\3#{branch}\\3&quot;</span>)
+  <span class="ruby-identifier">rakefile</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/deploy_default(\s*)=(\s*)([&quot;&#39;])[\w-]*[&quot;&#39;]/</span>, <span class="ruby-string">&quot;deploy_default\\1=\\2\\3push\\3&quot;</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-keyword">__FILE__</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">rakefile</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n---\n## Now you can deploy to #{url} with `rake deploy` ##&quot;</span>
+</pre>
+
+<p>end</p>
+
+<p>def ok_failed(condition)</p>
+
+<pre>if (condition)
+  puts &quot;OK&quot;
+else
+  puts &quot;FAILED&quot;
+end</pre>
+
+<p>end</p>
+
+<p>def get_stdin(message)</p>
+
+<pre>print message
+STDIN.gets.chomp</pre>
+
+<p>end</p>
+
+<p>def ask(message, valid_options)</p>
+
+<pre>if valid_options
+  answer = get_stdin(&quot;#{message} #{valid_options.to_s.gsub(/&quot;/, &#39;&#39;).gsub(/, /,&#39;/&#39;)} &quot;) while !valid_options.include?(answer)
+else
+  answer = get_stdin(message)
+end
+answer</pre>
+
+<p>end</p>
+
+<p>desc “list tasks” task :list do</p>
+
+<pre>puts &quot;Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(&#39;, &#39;)}&quot;
+puts &quot;(type rake -T for more detail)\n\n&quot;</pre>
+
+<p>end</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

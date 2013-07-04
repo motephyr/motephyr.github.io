@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>_syntax.scss - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../../_deploy/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../_deploy/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../_deploy/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../_deploy/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../_deploy/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../_deploy/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/guan-yu-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../../index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../public/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../public/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../public/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../public/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../public/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../public/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../sass/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../../sass/_partials_scss.html">_partials.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_solarized_scss.html">_solarized.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_theme_scss.html">_theme.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_typography_scss.html">_typography.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_utilities_scss.html">_utilities.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_colors_scss.html">_colors.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_fonts_scss.html">_fonts.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_styles_scss.html">_styles.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_archive_scss.html">_archive.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_blog_scss.html">_blog.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_footer_scss.html">_footer.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_header_scss.html">_header.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_navigation_scss.html">_navigation.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_sharing_scss.html">_sharing.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_sidebar_scss.html">_sidebar.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_syntax_scss.html">_syntax.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_delicious_scss.html">_delicious.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_googleplus_scss.html">_googleplus.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_pinboard_scss.html">_pinboard.scss</a>
+  
+    <li class="file"><a href="../../sass/plugins/_plugins_scss.html">_plugins.scss</a>
+  
+    <li class="file"><a href="../../sass/screen_scss.html">screen.scss</a>
+  
+    <li class="file"><a href="../../sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../source/_includes/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/archive_post_html.html">archive_post.html</a>
+  
+    <li class="file"><a href="../../source/_includes/article_html.html">article.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/delicious_html.html">delicious.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/github_html.html">github.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/googleplus_html.html">googleplus.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/pinboard_html.html">pinboard.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/recent_posts_html.html">recent_posts.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/asides/about_html.html">about.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/category_feed_xml.html">category_feed.xml</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../../source/_includes/disqus_html.html">disqus.html</a>
+  
+    <li class="file"><a href="../../source/_includes/facebook_like_html.html">facebook_like.html</a>
+  
+    <li class="file"><a href="../../source/_includes/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/google_analytics_html.html">google_analytics.html</a>
+  
+    <li class="file"><a href="../../source/_includes/google_plus_one_html.html">google_plus_one.html</a>
+  
+    <li class="file"><a href="../../source/_includes/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../../source/_includes/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../../source/_includes/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/author_html.html">author.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/categories_html.html">categories.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/date_html.html">date.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/disqus_thread_html.html">disqus_thread.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/sharing_html.html">sharing.html</a>
+  
+    <li class="file"><a href="../../source/_includes/twitter_sharing_html.html">twitter_sharing.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/category_index_html.html">category_index.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/default_html.html">default.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/page_html.html">page.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/post_html.html">post.html</a>
+  
+    <li class="file"><a href="../../source/_posts/2013-06-30-about-octopress_markdown.html">2013-06-30-about-octopress.markdown</a>
+  
+    <li class="file"><a href="../../source/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../source/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../source/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../source/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../source/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../source/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../source/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../stylesheets/screen_css.html">screen.css</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../../Jekyll/ContentFilters.html">Jekyll::ContentFilters</a>
+  
+    <li><a href="../../Jekyll/Convertible.html">Jekyll::Convertible</a>
+  
+    <li><a href="../../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../../Jekyll/Layout.html">Jekyll::Layout</a>
+  
+    <li><a href="../../Jekyll/Page.html">Jekyll::Page</a>
+  
+    <li><a href="../../Jekyll/Pager.html">Jekyll::Pager</a>
+  
+    <li><a href="../../Jekyll/Pagination.html">Jekyll::Pagination</a>
+  
+    <li><a href="../../Jekyll/Post.html">Jekyll::Post</a>
+  
+    <li><a href="../../Jekyll/PostFilter.html">Jekyll::PostFilter</a>
+  
+    <li><a href="../../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../../Jekyll/SitemapFile.html">Jekyll::SitemapFile</a>
+  
+    <li><a href="../../Jekyll/SitemapGenerator.html">Jekyll::SitemapGenerator</a>
+  
+    <li><a href="../../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../../Liquid.html">Liquid</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../Octopress.html">Octopress</a>
+  
+    <li><a href="../../Octopress/Date.html">Octopress::Date</a>
+  
+    <li><a href="../../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>.highlight, html .gist .gist-file .gist-syntax .gist-highlight {</p>
+
+<pre>table td.code { width: 100%; }
+border: 1px solid $pre-border !important;</pre>
+
+<p>} .highlight .line-numbers, html .gist .gist-file .gist-syntax .highlight
+.line_numbers {</p>
+
+<pre>text-align: right;
+font-size: 13px;
+line-height: 1.45em;
+@if $solarized == light {
+  background: lighten($base03, 1) $noise-bg !important;
+  border-right: 1px solid darken($base02, 2) !important;
+  @include box-shadow(lighten($base03, 2) -1px 0 inset);
+  text-shadow: lighten($base02, 2) 0 -1px;
+} @else {
+  background: $base02 $noise-bg !important;
+  border-right: 1px solid darken($base03, 2) !important;
+  @include box-shadow(lighten($base02, 2) -1px 0 inset);
+  text-shadow: darken($base02, 10) 0 -1px;
+}
+span { color: $base01 !important; }
+padding: .8em !important;
+@include border-radius(0);</pre>
+
+<p>}</p>
+
+<p>figure.code, .gist-file, pre {</p>
+
+<pre>@include box-shadow(rgba(#000, .06) 0 0 10px);
+.highlight pre { @include box-shadow(none); }</pre>
+
+<p>}</p>
+
+<p>.gist .highlight, figure.code .highlight {</p>
+
+<pre>@include selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text-shadow: $base03 0 1px);</pre>
+
+<p>} html .gist .gist-file {</p>
+
+<pre>margin-bottom: 1.8em;
+position: relative;
+border: none;
+padding-top: image-height(&quot;code_bg.png&quot;) !important;
+.highlight {
+  margin-bottom: 0;
+}
+.gist-syntax {
+  border-bottom: 0 !important;
+  background: none !important;
+  .gist-highlight {
+    background: $base03 !important;
+  }
+  .highlight pre {
+    @extend .pre-code;
+    padding: 0;
+  }
+}
+.gist-meta {
+ padding: .6em 0.8em;
+ border: 1px solid lighten($base02, 2) !important;
+ color: $base01;
+ font-size: .7em !important;
+ @if $solarized == light {
+   background: lighten($base03, 2) $noise-bg;
+   border: 1px solid $pre-border !important;
+   border-top: 1px solid lighten($base03, 2) !important;
+ } @else {
+   background: $base02 $noise-bg;
+ }
+ @extend .sans;
+ line-height: 1.5em;
+  a {
+    color: mix($base1, $base01) !important;
+    @include hover-link;
+    &amp;:hover { color: $base1 !important; }
+  }
+  a[href*=&#39;#file&#39;] {
+    position: absolute; top: 0; left:0; right:-10px;
+    color: #474747 !important;
+    @extend .code-title;
+    &amp;:hover { color: $link-color !important; }
+  }
+  a[href*=raw]{
+    @extend .download-source;
+    top: .4em;
+  }
+}</pre>
+
+<p>} pre {</p>
+
+<pre>background: $pre-bg $noise-bg;
+@include border-radius(.4em);
+@extend .mono;
+border: 1px solid $pre-border;
+line-height: 1.45em;
+font-size: 13px;
+margin-bottom: 2.1em;
+padding: .8em 1em;
+color: $pre-color;
+overflow: auto;</pre>
+
+<p>} h3.filename {</p>
+
+<pre>@extend .code-title;
++ pre { @include border-top-radius(0px); }</pre>
+
+<p>}</p>
+
+<p>p, li {</p>
+
+<pre>code {
+  @extend .mono;
+  display: inline-block;
+  white-space: no-wrap;
+  background: #fff;
+  font-size: .8em;
+  line-height: 1.5em;
+  color: #555;
+  border: 1px solid #ddd;
+  @include border-radius(.4em);
+  padding: 0 .3em;
+  margin: -1px 0;
+}
+pre code { font-size: 1em !important; background: none; border: none; }</pre>
+
+<p>}</p>
+
+<p>.pre-code {</p>
+
+<pre>font-family: $mono !important;
+overflow: scroll;
+overflow-y: hidden;
+display: block;
+padding: .8em;
+overflow-x: auto;
+line-height: 1.45em;
+background: $base03 $noise-bg !important;
+color: $base1 !important;
+span { color: $base1 !important; }
+span { font-style: normal !important; font-weight: normal !important; }
+
+.c      { color: $base01 !important; font-style: italic !important; }                        Comment   
+.cm     { color: $base01 !important; font-style: italic !important; }                        Comment.Multiline   
+.cp     { color: $base01 !important; font-style: italic !important;  }                     /* Comment.Preproc */
+.c1     { color: $base01 !important; font-style: italic !important; }                     /* Comment.Single */
+.cs     { color: $base01 !important; font-weight: bold !important; font-style: italic !important; }   /* Comment.Special */
+.err    { color: $solar-red !important; background: none !important; }                                            /* Error */
+.k      { color: $solar-orange !important; }                       /* Keyword */
+.o      { color: $base1 !important; font-weight: bold !important; }                       /* Operator */
+.p      { color: $base1 !important; }                                             /* Operator */
+.ow     { color: $solar-cyan !important; font-weight: bold !important; }                       /* Operator.Word */
+.gd     { color: $base1 !important; background-color: mix($solar-red, $base03, 25%) !important; display: inline-block; }               /* Generic.Deleted */
+.gd .x  { color: $base1 !important; background-color: mix($solar-red, $base03, 35%) !important; display: inline-block; }               /* Generic.Deleted.Specific */
+.ge     { color: $base1 !important; font-style: italic !important; }                      /* Generic.Emph */
+//.gr     { color: #aa0000 }                                          /* Generic.Error */
+.gh     { color: $base01 !important; }                                          /* Generic.Heading */
+.gi     { color: $base1 !important; background-color: mix($solar-green, $base03, 20%) !important; display: inline-block; }               /* Generic.Inserted */
+.gi .x  { color: $base1 !important; background-color: mix($solar-green, $base03, 40%) !important; display: inline-block; }               /* Generic.Inserted.Specific */
+//.go     { color: #888888 }                                          /* Generic.Output */
+//.gp     { color: #555555 }                                          /* Generic.Prompt */
+.gs     { color: $base1 !important; font-weight: bold !important; }                                       /* Generic.Strong */
+.gu     { color: $solar-violet !important; }                                          /* Generic.Subheading */
+//.gt     { color: #aa0000 }                                          /* Generic.Traceback */
+.kc     { color: $solar-green !important; font-weight: bold !important; }                       /* Keyword.Constant */
+.kd     { color: $solar-blue !important; }                       /* Keyword.Declaration */
+.kp     { color: $solar-orange !important; font-weight: bold !important; }                       /* Keyword.Pseudo */
+.kr     { color: $solar-magenta !important; font-weight: bold !important; }                       /* Keyword.Reserved */
+.kt     { color: $solar-cyan !important; }                       /* Keyword.Type */
+.n      { color: $solar-blue !important; }
+.na     { color: $solar-blue !important; }                                          /* Name.Attribute */
+.nb     { color: $solar-green !important; }                                          /* Name.Builtin */
+.nc     { color: $solar-magenta !important;}                                                   /* Name.Class */
+.no     { color: $solar-yellow !important; }                                          /* Name.Constant */
+//.ni     { color: #800080 }                                          /* Name.Entity */
+.nl     { color: $solar-green !important; }
+.ne     { color: $solar-blue !important; font-weight: bold !important; }                       /* Name.Exception */
+.nf     { color: $solar-blue !important; font-weight: bold !important; }                       /* Name.Function */
+.nn     { color: $solar-yellow !important; }                                          /* Name.Namespace */
+.nt     { color: $solar-blue !important; font-weight: bold !important; }                                          /* Name.Tag */
+.nx     { color: $solar-yellow !Important; }
+//.bp     { color: #999999 }                                          /* Name.Builtin.Pseudo */
+//.vc     { color: #008080 }                                          /* Name.Variable.Class */
+.vg     { color: $solar-blue !important; }                                          /* Name.Variable.Global */
+.vi     { color: $solar-blue !important; }                                          /* Name.Variable.Instance */
+.nv     { color: $solar-blue !important; }                                          /* Name.Variable */
+//.w      { color: #bbbbbb }                                          /* Text.Whitespace */
+.mf     { color: $solar-cyan !important; }                                          /* Literal.Number.Float */
+.m      { color: $solar-cyan !important; }                                          /* Literal.Number */
+.mh     { color: $solar-cyan !important; }                                          /* Literal.Number.Hex */
+.mi     { color: $solar-cyan !important; }                                          /* Literal.Number.Integer */
+//.mo     { color: #009999 }                                          /* Literal.Number.Oct */
+.s      { color: $solar-cyan !important; }                                             /* Literal.String */
+//.sb     { color: #d14 }                                             /* Literal.String.Backtick */
+//.sc     { color: #d14 }                                             /* Literal.String.Char */
+.sd     { color: $solar-cyan !important; }                                             /* Literal.String.Doc */
+.s2     { color: $solar-cyan !important; }                                             /* Literal.String.Double */
+.se     { color: $solar-red !important; }                                             /* Literal.String.Escape */
+//.sh     { color: #d14 }                                             /* Literal.String.Heredoc */
+.si     { color: $solar-blue !important; }                                             /* Literal.String.Interpol */
+//.sx     { color: #d14 }                                             /* Literal.String.Other */
+.sr     { color: $solar-cyan !important; }                                          /* Literal.String.Regex */
+.s1     { color: $solar-cyan !important; }                                             /* Literal.String.Single */
+//.ss     { color: #990073 }                                          /* Literal.String.Symbol */
+//.il     { color: #009999 }                                          /* Literal.Number.Integer.Long */
+div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}</pre>
+
+<p>}</p>
+
+<p>.highlight, .gist-highlight {</p>
+
+<pre>pre { background: none; @include border-radius(0px); border: none; padding: 0; margin-bottom: 0; }
+margin-bottom: 1.8em;
+background: $base03;
+overflow-y: hidden;
+overflow-x: auto;</pre>
+
+<p>}</p>
+
+<p>$solar-scroll-bg: rgba(#fff, .15); $solar-scroll-thumb: rgba(#fff, .2); @if
+$solarized == light {</p>
+
+<pre>$solar-scroll-bg: rgba(#000, .15);
+$solar-scroll-thumb: rgba(#000, .15);</pre>
+
+<p>}</p>
+
+<p>pre, .highlight, .gist-highlight {</p>
+
+<pre>&amp;::-webkit-scrollbar {  height: .5em; background: $solar-scroll-bg; }
+&amp;::-webkit-scrollbar-thumb:horizontal { background: $solar-scroll-thumb;  -webkit-border-radius: 4px; border-radius: 4px }</pre>
+
+<p>}</p>
+
+<p>.highlight code {</p>
+
+<pre>@extend .pre-code; background: #000;</pre>
+
+<p>} figure.code {</p>
+
+<pre>background: none;
+padding: 0;
+border: 0;
+margin-bottom: 1.5em;
+pre { margin-bottom: 0; }
+figcaption {
+  position: relative;
+  @extend .code-title;
+  a { @extend .download-source; }
+}
+.highlight {
+  margin-bottom: 0;
+}</pre>
+
+<p>}</p>
+
+<p>.code-title {</p>
+
+<pre>text-align: center;
+font-size: 13px;
+line-height: 2em;
+text-shadow: #cbcccc 0 1px 0;
+color: #474747;
+font-weight: normal;
+margin-bottom: 0;
+@include border-top-radius(5px);
+font-family: &quot;Helvetica Neue&quot;, Arial, &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Lucida, sans-serif;
+background: #aaaaaa image-url(&quot;code_bg.png&quot;) top repeat-x;
+border: 1px solid #565656;
+border-top-color: #cbcbcb;
+border-left-color: #a5a5a5;
+border-right-color: #a5a5a5;
+border-bottom: 0;</pre>
+
+<p>}</p>
+
+<p>.download-source {</p>
+
+<pre>position: absolute; right: .8em;
+@include hover-link;
+color: #666 !important;
+z-index: 1;
+font-size: 13px;
+text-shadow: #cbcccc 0 1px 0;
+padding-left: 3em;</pre>
+
+<p>}</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

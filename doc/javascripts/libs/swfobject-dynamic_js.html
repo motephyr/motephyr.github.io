@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>swfobject-dynamic.js - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../CHANGELOG_markdown.html">CHANGELOG.markdown</a>
+  
+    <li class="file"><a href="../../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../../README_markdown.html">README.markdown</a>
+  
+    <li class="file"><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../../_deploy/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../_deploy/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../_deploy/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../_deploy/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../_deploy/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../_deploy/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../_deploy/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/guan-yu-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/2013/06/30/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../config_ru.html">config.ru</a>
+  
+    <li class="file"><a href="../../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../../index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../public/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../public/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../public/blog/2013/06/30/about-octopress/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../public/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../public/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../public/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../public/sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../public/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../sass/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../../sass/_partials_scss.html">_partials.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_solarized_scss.html">_solarized.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_theme_scss.html">_theme.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_typography_scss.html">_typography.scss</a>
+  
+    <li class="file"><a href="../../sass/base/_utilities_scss.html">_utilities.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_colors_scss.html">_colors.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_fonts_scss.html">_fonts.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_layout_scss.html">_layout.scss</a>
+  
+    <li class="file"><a href="../../sass/custom/_styles_scss.html">_styles.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_archive_scss.html">_archive.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_blog_scss.html">_blog.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_footer_scss.html">_footer.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_header_scss.html">_header.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_navigation_scss.html">_navigation.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_sharing_scss.html">_sharing.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_sidebar_scss.html">_sidebar.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/_syntax_scss.html">_syntax.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_base_scss.html">_base.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_delicious_scss.html">_delicious.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_googleplus_scss.html">_googleplus.scss</a>
+  
+    <li class="file"><a href="../../sass/partials/sidebar/_pinboard_scss.html">_pinboard.scss</a>
+  
+    <li class="file"><a href="../../sass/plugins/_plugins_scss.html">_plugins.scss</a>
+  
+    <li class="file"><a href="../../sass/screen_scss.html">screen.scss</a>
+  
+    <li class="file"><a href="../../sitemap_xml.html">sitemap.xml</a>
+  
+    <li class="file"><a href="../../source/_includes/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/archive_post_html.html">archive_post.html</a>
+  
+    <li class="file"><a href="../../source/_includes/article_html.html">article.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/delicious_html.html">delicious.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/github_html.html">github.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/googleplus_html.html">googleplus.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/pinboard_html.html">pinboard.html</a>
+  
+    <li class="file"><a href="../../source/_includes/asides/recent_posts_html.html">recent_posts.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/after_footer_html.html">after_footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/asides/about_html.html">about.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/category_feed_xml.html">category_feed.xml</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../../source/_includes/custom/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../../source/_includes/disqus_html.html">disqus.html</a>
+  
+    <li class="file"><a href="../../source/_includes/facebook_like_html.html">facebook_like.html</a>
+  
+    <li class="file"><a href="../../source/_includes/footer_html.html">footer.html</a>
+  
+    <li class="file"><a href="../../source/_includes/google_analytics_html.html">google_analytics.html</a>
+  
+    <li class="file"><a href="../../source/_includes/google_plus_one_html.html">google_plus_one.html</a>
+  
+    <li class="file"><a href="../../source/_includes/head_html.html">head.html</a>
+  
+    <li class="file"><a href="../../source/_includes/header_html.html">header.html</a>
+  
+    <li class="file"><a href="../../source/_includes/navigation_html.html">navigation.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/author_html.html">author.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/categories_html.html">categories.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/date_html.html">date.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/disqus_thread_html.html">disqus_thread.html</a>
+  
+    <li class="file"><a href="../../source/_includes/post/sharing_html.html">sharing.html</a>
+  
+    <li class="file"><a href="../../source/_includes/twitter_sharing_html.html">twitter_sharing.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/category_index_html.html">category_index.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/default_html.html">default.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/page_html.html">page.html</a>
+  
+    <li class="file"><a href="../../source/_layouts/post_html.html">post.html</a>
+  
+    <li class="file"><a href="../../source/_posts/2013-06-30-about-octopress_markdown.html">2013-06-30-about-octopress.markdown</a>
+  
+    <li class="file"><a href="../../source/assets/jwplayer/glow/glow_xml.html">glow.xml</a>
+  
+    <li class="file"><a href="../../source/atom_xml.html">atom.xml</a>
+  
+    <li class="file"><a href="../../source/blog/archives/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../source/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../source/javascripts/github_js.html">github.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/jXHR_js.html">jXHR.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/jquery_min_js.html">jquery.min.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/libs/swfobject-dynamic_js.html">swfobject-dynamic.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/modernizr-2_0_js.html">modernizr-2.0.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/octopress_js.html">octopress.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/pinboard_js.html">pinboard.js</a>
+  
+    <li class="file"><a href="../../source/javascripts/twitter_js.html">twitter.js</a>
+  
+    <li class="file"><a href="../../source/robots_txt.html">robots</a>
+  
+    <li class="file"><a href="../../source/stylesheets/screen_css.html">screen.css</a>
+  
+    <li class="file"><a href="../../stylesheets/screen_css.html">screen.css</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../BacktickCodeBlock.html">BacktickCodeBlock</a>
+  
+    <li><a href="../../ConfigTag.html">ConfigTag</a>
+  
+    <li><a href="../../HighlightCode.html">HighlightCode</a>
+  
+    <li><a href="../../Jekyll.html">Jekyll</a>
+  
+    <li><a href="../../Jekyll/Blockquote.html">Jekyll::Blockquote</a>
+  
+    <li><a href="../../Jekyll/CategoryFeed.html">Jekyll::CategoryFeed</a>
+  
+    <li><a href="../../Jekyll/CategoryIndex.html">Jekyll::CategoryIndex</a>
+  
+    <li><a href="../../Jekyll/CodeBlock.html">Jekyll::CodeBlock</a>
+  
+    <li><a href="../../Jekyll/ContentFilters.html">Jekyll::ContentFilters</a>
+  
+    <li><a href="../../Jekyll/Convertible.html">Jekyll::Convertible</a>
+  
+    <li><a href="../../Jekyll/Filters.html">Jekyll::Filters</a>
+  
+    <li><a href="../../Jekyll/GenerateCategories.html">Jekyll::GenerateCategories</a>
+  
+    <li><a href="../../Jekyll/GistTag.html">Jekyll::GistTag</a>
+  
+    <li><a href="../../Jekyll/GistTagNoCache.html">Jekyll::GistTagNoCache</a>
+  
+    <li><a href="../../Jekyll/HamlConverter.html">Jekyll::HamlConverter</a>
+  
+    <li><a href="../../Jekyll/ImageTag.html">Jekyll::ImageTag</a>
+  
+    <li><a href="../../Jekyll/IncludeArrayTag.html">Jekyll::IncludeArrayTag</a>
+  
+    <li><a href="../../Jekyll/IncludeCodeTag.html">Jekyll::IncludeCodeTag</a>
+  
+    <li><a href="../../Jekyll/JsFiddle.html">Jekyll::JsFiddle</a>
+  
+    <li><a href="../../Jekyll/Layout.html">Jekyll::Layout</a>
+  
+    <li><a href="../../Jekyll/Page.html">Jekyll::Page</a>
+  
+    <li><a href="../../Jekyll/Pager.html">Jekyll::Pager</a>
+  
+    <li><a href="../../Jekyll/Pagination.html">Jekyll::Pagination</a>
+  
+    <li><a href="../../Jekyll/Post.html">Jekyll::Post</a>
+  
+    <li><a href="../../Jekyll/PostFilter.html">Jekyll::PostFilter</a>
+  
+    <li><a href="../../Jekyll/PullquoteTag.html">Jekyll::PullquoteTag</a>
+  
+    <li><a href="../../Jekyll/RawTag.html">Jekyll::RawTag</a>
+  
+    <li><a href="../../Jekyll/RenderPartialTag.html">Jekyll::RenderPartialTag</a>
+  
+    <li><a href="../../Jekyll/Site.html">Jekyll::Site</a>
+  
+    <li><a href="../../Jekyll/SitemapFile.html">Jekyll::SitemapFile</a>
+  
+    <li><a href="../../Jekyll/SitemapGenerator.html">Jekyll::SitemapGenerator</a>
+  
+    <li><a href="../../Jekyll/VideoTag.html">Jekyll::VideoTag</a>
+  
+    <li><a href="../../Liquid.html">Liquid</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+    <li><a href="../../Octopress.html">Octopress</a>
+  
+    <li><a href="../../Octopress/Date.html">Octopress::Date</a>
+  
+    <li><a href="../../OctopressFilters.html">OctopressFilters</a>
+  
+    <li><a href="../../OctopressLiquidFilters.html">OctopressLiquidFilters</a>
+  
+    <li><a href="../../RubyPants.html">RubyPants</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../TemplateWrapper.html">TemplateWrapper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<pre>!     SWFObject v2.2 &lt;http://code.google.com/p/swfobject/&gt;
+      is released under the MIT License &lt;http://www.opensource.org/licenses/mit-license.php&gt;</pre>
+
+<p>var swfobject = function() {</p>
+
+<pre>      var UNDEF = &quot;undefined&quot;,
+              OBJECT = &quot;object&quot;,
+              SHOCKWAVE_FLASH = &quot;Shockwave Flash&quot;,
+              SHOCKWAVE_FLASH_AX = &quot;ShockwaveFlash.ShockwaveFlash&quot;,
+              FLASH_MIME_TYPE = &quot;application/x-shockwave-flash&quot;,
+              EXPRESS_INSTALL_ID = &quot;SWFObjectExprInst&quot;,
+
+              win = window,
+              doc = document,
+              nav = navigator,
+
+              plugin = false,
+              regObjArr = [],
+              objIdArr = [],
+              storedAltContent,
+              storedAltContentId,
+              storedCallbackFn,
+              storedCallbackObj,
+              autoHideShow = true,
+
+      /* Centralized function for browser feature detection
+              - User agent string detection is only used when no good alternative is possible
+              - Is executed directly for optimal performance
+/
+      ua = function() {
+              var w3cdom = typeof doc.getElementById != UNDEF &amp;&amp; typeof doc.getElementsByTagName != UNDEF &amp;&amp; typeof doc.createElement != UNDEF,
+                      u = nav.userAgent.toLowerCase(),
+                      p = nav.platform.toLowerCase(),
+                      windows = p ? /win/.test(p) : /win/.test(u),
+                      mac = p ? /mac/.test(p) : /mac/.test(u),
+                      webkit = /webkit/.test(u) ? parseFloat(u.replace(/^.*webkit\/(\d+(\.\d+)?).*$/, &quot;$1&quot;)) : false, // returns either the webkit version or false if not webkit
+                      ie = !+&quot;\v1&quot;, // feature detection based on Andrea Giammarchi&#39;s solution: http://webreflection.blogspot.com/2009/01/32-bytes-to-know-if-your-browser-is-ie.html
+                      playerVersion = [0,0,0],
+                      d = null;
+              if (typeof nav.plugins != UNDEF &amp;&amp; typeof nav.plugins[SHOCKWAVE_FLASH] == OBJECT) {
+                      d = nav.plugins[SHOCKWAVE_FLASH].description;
+                      if (d &amp;&amp; !(typeof nav.mimeTypes != UNDEF &amp;&amp; nav.mimeTypes[FLASH_MIME_TYPE] &amp;&amp; !nav.mimeTypes[FLASH_MIME_TYPE].enabledPlugin)) { // navigator.mimeTypes[&quot;application/x-shockwave-flash&quot;].enabledPlugin indicates whether plug-ins are enabled or disabled in Safari 3+
+                              plugin = true;
+                              ie = false; // cascaded feature detection for Internet Explorer
+                              d = d.replace(/^.*\s+(\S+\s+\S+$)/, &quot;$1&quot;);
+                              playerVersion[0] = parseInt(d.replace(/^(.*)\..*$/, &quot;$1&quot;), 10);
+                              playerVersion[1] = parseInt(d.replace(/^.*\.(.*)\s.*$/, &quot;$1&quot;), 10);
+                              playerVersion[2] = /[a-zA-Z]/.test(d) ? parseInt(d.replace(/^.*[a-zA-Z]+(.*)$/, &quot;$1&quot;), 10) : 0;
+                      }
+              }
+              else if (typeof win.ActiveXObject != UNDEF) {
+                      try {
+                              var a = new ActiveXObject(SHOCKWAVE_FLASH_AX);
+                              if (a) { // a will return null when ActiveX is disabled
+                                      d = a.GetVariable(&quot;$version&quot;);
+                                      if (d) {
+                                              ie = true; // cascaded feature detection for Internet Explorer
+                                              d = d.split(&quot; &quot;)[1].split(&quot;,&quot;);
+                                              playerVersion = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];
+                                      }
+                              }
+                      }
+                      catch(e) {}
+              }
+              return { w3:w3cdom, pv:playerVersion, wk:webkit, ie:ie, win:windows, mac:mac };
+      }()
+
+      /* Main function
+              - Will preferably execute onDomLoad, otherwise onload (as a fallback)
+/
+      function main() {
+              if (plugin) { testPlayerVersion(); }
+              else { matchVersions(); }
+      }
+
+      /* Detect the Flash Player version for non-Internet Explorer browsers
+              - Detecting the plug-in version via the object element is more precise than using the plugins collection item&#39;s description:
+                a. Both release and build numbers can be detected
+                b. Avoid wrong descriptions by corrupt installers provided by Adobe
+                c. Avoid wrong descriptions by multiple Flash Player entries in the plugin Array, caused by incorrect browser imports
+              - Disadvantage of this method is that it depends on the availability of the DOM, while the plugins collection is immediately available
+/
+      function testPlayerVersion() {
+              var b = doc.getElementsByTagName(&quot;body&quot;)[0];
+              var o = createElement(OBJECT);
+              o.setAttribute(&quot;type&quot;, FLASH_MIME_TYPE);
+              var t = b.appendChild(o);
+              if (t) {
+                      var counter = 0;
+                      (function(){
+                              if (typeof t.GetVariable != UNDEF) {
+                                      var d = t.GetVariable(&quot;$version&quot;);
+                                      if (d) {
+                                              d = d.split(&quot; &quot;)[1].split(&quot;,&quot;);
+                                              ua.pv = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];
+                                      }
+                              }
+                              else if (counter &lt; 10) {
+                                      counter++;
+                                      setTimeout(arguments.callee, 10);
+                                      return;
+                              }
+                              b.removeChild(o);
+                              t = null;
+                              matchVersions();
+                      })();
+              }
+              else {
+                      matchVersions();
+              }
+      }
+
+      /* Cross-browser dynamic SWF creation
+/
+      function createSWF(attObj, parObj, id) {
+              var r, el = getElementById(id);
+              if (ua.wk &amp;&amp; ua.wk &lt; 312) { return r; }
+              if (el) {
+                      if (typeof attObj.id == UNDEF) { // if no &#39;id&#39; is defined for the object element, it will inherit the &#39;id&#39; from the alternative content
+                              attObj.id = id;
+                      }
+                      if (ua.ie &amp;&amp; ua.win) { // Internet Explorer + the HTML object element + W3C DOM methods do not combine: fall back to outerHTML
+                              var att = &quot;&quot;;
+                              for (var i in attObj) {
+                                      if (attObj[i] != Object.prototype[i]) { // filter out prototype additions from other potential libraries
+                                              if (i.toLowerCase() == &quot;data&quot;) {
+                                                      parObj.movie = attObj[i];
+                                              }
+                                              else if (i.toLowerCase() == &quot;styleclass&quot;) { // &#39;class&#39; is an ECMA4 reserved keyword
+                                                      att += &#39; class=&quot;&#39; + attObj[i] + &#39;&quot;&#39;;
+                                              }
+                                              else if (i.toLowerCase() != &quot;classid&quot;) {
+                                                      att += &#39; &#39; + i + &#39;=&quot;&#39; + attObj[i] + &#39;&quot;&#39;;
+                                              }
+                                      }
+                              }
+                              var par = &quot;&quot;;
+                              for (var j in parObj) {
+                                      if (parObj[j] != Object.prototype[j]) { // filter out prototype additions from other potential libraries
+                                              par += &#39;&lt;param name=&quot;&#39; + j + &#39;&quot; value=&quot;&#39; + parObj[j] + &#39;&quot; /&gt;&#39;;
+                                      }
+                              }
+                              el.outerHTML = &#39;&lt;object classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;&#39; + att + &#39;&gt;&#39; + par + &#39;&lt;/object&gt;&#39;;
+                              objIdArr[objIdArr.length] = attObj.id; // stored to fix object &#39;leaks&#39; on unload (dynamic publishing only)
+                              r = getElementById(attObj.id);
+                      }
+                      else { // well-behaving browsers
+                              var o = createElement(OBJECT);
+                              o.setAttribute(&quot;type&quot;, FLASH_MIME_TYPE);
+                              for (var m in attObj) {
+                                      if (attObj[m] != Object.prototype[m]) { // filter out prototype additions from other potential libraries
+                                              if (m.toLowerCase() == &quot;styleclass&quot;) { // &#39;class&#39; is an ECMA4 reserved keyword
+                                                      o.setAttribute(&quot;class&quot;, attObj[m]);
+                                              }
+                                              else if (m.toLowerCase() != &quot;classid&quot;) { // filter out IE specific attribute
+                                                      o.setAttribute(m, attObj[m]);
+                                              }
+                                      }
+                              }
+                              for (var n in parObj) {
+                                      if (parObj[n] != Object.prototype[n] &amp;&amp; n.toLowerCase() != &quot;movie&quot;) { // filter out prototype additions from other potential libraries and IE specific param element
+                                              createObjParam(o, n, parObj[n]);
+                                      }
+                              }
+                              el.parentNode.replaceChild(o, el);
+                              r = o;
+                      }
+              }
+              return r;
+      }
+
+      function createObjParam(el, pName, pValue) {
+              var p = createElement(&quot;param&quot;);
+              p.setAttribute(&quot;name&quot;, pName);
+              p.setAttribute(&quot;value&quot;, pValue);
+              el.appendChild(p);
+      }
+
+      /* Cross-browser SWF removal
+              - Especially needed to safely and completely remove a SWF in Internet Explorer
+/
+      /* Functions to optimize JavaScript compression
+/
+      function getElementById(id) {
+              var el = null;
+              try {
+                      el = doc.getElementById(id);
+              }
+              catch (e) {}
+              return el;
+      }
+
+      function createElement(el) {
+              return doc.createElement(el);
+      }
+
+      /* Flash Player and SWF content version matching
+/
+      function hasPlayerVersion(rv) {
+              var pv = ua.pv, v = rv.split(&quot;.&quot;);
+              v[0] = parseInt(v[0], 10);
+              v[1] = parseInt(v[1], 10) || 0; // supports short notation, e.g. &quot;9&quot; instead of &quot;9.0.0&quot;
+              v[2] = parseInt(v[2], 10) || 0;
+              return (pv[0] &gt; v[0] || (pv[0] == v[0] &amp;&amp; pv[1] &gt; v[1]) || (pv[0] == v[0] &amp;&amp; pv[1] == v[1] &amp;&amp; pv[2] &gt;= v[2])) ? true : false;
+      }
+
+      /* Filter to avoid XSS attacks
+/
+      function urlEncodeIfNecessary(s) {
+              var regex = /[\\\&quot;&lt;&gt;\.;]/;
+              var hasBadChars = regex.exec(s) != null;
+              return hasBadChars &amp;&amp; typeof encodeURIComponent != UNDEF ? encodeURIComponent(s) : s;
+      }
+
+      return {
+              /* Public API
+                      - Reference: http://code.google.com/p/swfobject/wiki/documentation
+ /
+
+              embedSWF: function(swfUrlStr, replaceElemIdStr, widthStr, heightStr, swfVersionStr, flashvarsObj, parObj, attObj, callbackFn) {
+                      var callbackObj = {success:false, id:replaceElemIdStr};
+                      if (ua.w3 &amp;&amp; !(ua.wk &amp;&amp; ua.wk &lt; 312) &amp;&amp; swfUrlStr &amp;&amp; replaceElemIdStr &amp;&amp; widthStr &amp;&amp; heightStr &amp;&amp; swfVersionStr) {
+            widthStr += &quot;&quot;; // auto-convert to string
+            heightStr += &quot;&quot;;
+            var att = {};
+            if (attObj &amp;&amp; typeof attObj === OBJECT) {
+              for (var i in attObj) { // copy object to avoid the use of references, because web authors often reuse attObj for multiple SWFs
+                att[i] = attObj[i];
+              }
+            }
+            att.data = swfUrlStr;
+            att.width = widthStr;
+            att.height = heightStr;
+            var par = {};
+            if (parObj &amp;&amp; typeof parObj === OBJECT) {
+              for (var j in parObj) { // copy object to avoid the use of references, because web authors often reuse parObj for multiple SWFs
+                par[j] = parObj[j];
+              }
+            }
+            if (flashvarsObj &amp;&amp; typeof flashvarsObj === OBJECT) {
+              for (var k in flashvarsObj) { // copy object to avoid the use of references, because web authors often reuse flashvarsObj for multiple SWFs
+                if (typeof par.flashvars != UNDEF) {
+                  par.flashvars += &quot;&amp;&quot; + k + &quot;=&quot; + flashvarsObj[k];
+                }
+                else {
+                  par.flashvars = k + &quot;=&quot; + flashvarsObj[k];
+                }
+              }
+            }
+            if (hasPlayerVersion(swfVersionStr)) { // create SWF
+              var obj = createSWF(att, par, replaceElemIdStr);
+              callbackObj.success = true;
+              callbackObj.ref = obj;
+            }
+            if (callbackFn) { callbackFn(callbackObj); }
+                      }
+                      else if (callbackFn) { callbackFn(callbackObj); }
+              },
+
+              ua: ua,
+
+              getFlashPlayerVersion: function() {
+                      return { major:ua.pv[0], minor:ua.pv[1], release:ua.pv[2] };
+              },
+
+              hasFlashPlayerVersion: hasPlayerVersion,
+
+              createSWF: function(attObj, parObj, replaceElemIdStr) {
+                      if (ua.w3) {
+                              return createSWF(attObj, parObj, replaceElemIdStr);
+                      }
+                      else {
+                              return undefined;
+                      }
+              },
+
+              getQueryParamValue: function(param) {
+                      var q = doc.location.search || doc.location.hash;
+                      if (q) {
+                              if (/\?/.test(q)) { q = q.split(&quot;?&quot;)[1]; } // strip question mark
+                              if (param == null) {
+                                      return urlEncodeIfNecessary(q);
+                              }
+                              var pairs = q.split(&quot;&amp;&quot;);
+                              for (var i = 0; i &lt; pairs.length; i++) {
+                                      if (pairs[i].substring(0, pairs[i].indexOf(&quot;=&quot;)) == param) {
+                                              return urlEncodeIfNecessary(pairs[i].substring((pairs[i].indexOf(&quot;=&quot;) + 1)));
+                                      }
+                              }
+                      }
+                      return &quot;&quot;;
+              }
+      };</pre>
+
+<p>}();</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
