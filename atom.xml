@@ -4,7 +4,7 @@
   <title><![CDATA[馬克的程式架構筆記]]></title>
   <link href="http://motephyr.github.io/atom.xml" rel="self"/>
   <link href="http://motephyr.github.io/"/>
-  <updated>2013-07-14T16:08:45+08:00</updated>
+  <updated>2013-07-26T22:51:42+08:00</updated>
   <id>http://motephyr.github.io/</id>
   <author>
     <name><![CDATA[Mark Wu]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[關於Goliath的洞]]></title>
+    <link href="http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/"/>
+    <updated>2013-07-26T22:29:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong</id>
+    <content type="html"><![CDATA[<p>最近持續的研究Goliath</p>
+
+<p>原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
+
+<p>白話文：
+將從java過來的訊息透過java message service以goliath server接收，最後以WebSocket協定送至畫面上。</p>
+
+<h3>選擇MQ時考慮過的其他做法</h3>
+
+<h6>AMQP(Advanced Message Queuing Protocol)</h6>
+
+<p>要不是不想動MQServer(需要換成RabbitMQ)，這個做法其實比較標準</p>
+
+<h6>STOMP</h6>
+
+<p>很簡單的架構，但不太夠用。可是jms就非得要用jruby做，就去找了jruby-jms這個套件來處理</p>
+
+<p>結果！結果！Goliath硬是和jruby不合，跑起來就是不對勁</p>
+
+<p>一下子頁面出不來</p>
+
+<p>一下子Message接不到</p>
+
+<p>一下子WebSocket莫名其妙斷掉</p>
+
+<p>看來還是不要逆天行事，以後大家還是乖乖用AMQP做事好了，研究完WebSocket的部分，再來好好介紹AMQP。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby的block和Closure]]></title>

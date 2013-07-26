@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Easygo - 馬克的程式架構筆記</title>
+  <title>關於Goliath的洞 - 馬克的程式架構筆記</title>
   <meta name="author" content="Mark Wu">
 
   
-  <meta name="description" content="Goliath是以Ruby開發的non-blocking (asynchronous) Server，相對於最近熱門到不行的node.js來說，也是一個強調高效能且即時的Server。 目前個人做了一個小玩具，叫EasyGo(liath)，就是幫goliath(巨人)接接原本它沒有的翅膀呀， &hellip;">
+  <meta name="description" content="最近持續的研究Goliath 原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath) 白話文：
+將從java過來的訊息透過java message service以goliath server接收 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://motephyr.github.io/blog/2013/07/04/easygo">
+  <link rel="canonical" href="http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="馬克的程式架構筆記" type="application/atom+xml">
@@ -68,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">Easygo</h1>
+      <h1 class="entry-title">關於Goliath的洞</h1>
     
     
       <p class="meta">
@@ -84,60 +86,40 @@
   
 
 
-<time datetime="2013-07-04T16:22:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2013</time>
+<time datetime="2013-07-26T22:29:00+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="https://github.com/postrank-labs/goliath">Goliath</a>是以Ruby開發的non-blocking (asynchronous) Server，相對於最近熱門到不行的node.js來說，也是一個強調高效能且即時的Server。</p>
+<div class="entry-content"><p>最近持續的研究Goliath</p>
 
-<p>目前個人做了一個小玩具，叫EasyGo(liath)，就是幫goliath(巨人)接接原本它沒有的翅膀呀，手呀腳呀(Goliath給出來的東西都是小東西，發育不良)，自已做起東西就方便得多。</p>
+<p>原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
 
-<p>至於為什麼不想用node.js來做呢？</p>
+<p>白話文：
+將從java過來的訊息透過java message service以goliath server接收，最後以WebSocket協定送至畫面上。</p>
 
-<ul>
-<li>對javascipt有恐懼感 = = 我沒有jquery就不會做事了</li>
-<li>一堆callback看到我眼睛都抽筋了</li>
-<li>比較想用ruby寫東西(個人私心)</li>
-</ul>
+<h3>選擇MQ時考慮過的其他做法</h3>
 
+<h6>AMQP(Advanced Message Queuing Protocol)</h6>
 
-<p>以上只代表一件事 I love ruby > javascript</p>
+<p>要不是不想動MQServer(需要換成RabbitMQ)，這個做法其實比較標準</p>
 
-<p>回主題，重點是Goliath和其他元件如何搭配出我在Java做了三年的工具，所以原本其實只要搞定連接mqserver，使用Websocket和在不支援前者時改用long-polling的問題就可以處理掉通知功能，但還是做了不少其他的部分，有些東西，像測試，以前用java不會花時間寫，但在重構的過程中卻是很重要的部分，所以也算是一種進步吧。</p>
+<h6>STOMP</h6>
 
-<h2>目前用到的模組</h2>
+<p>很簡單的架構，但不太夠用。可是jms就非得要用jruby做，就去找了jruby-jms這個套件來處理</p>
 
-<h3>Grape</h3>
+<p>結果！結果！Goliath硬是和jruby不合，跑起來就是不對勁</p>
 
-<p>用以處理路由的部分，以前我寫spring MVC的人，路由不喜歡另外搞一個檔案出來維護，route檔案肥了你也看不懂，還不如照著Rest-like的規則把Controller寫好不是很方便嗎？</p>
+<p>一下子頁面出不來</p>
 
-<h3>Postgresql</h3>
+<p>一下子Message接不到</p>
 
-<p>資料庫嘛…總是要挑一種來存資料的，我們用postgresql習慣了，所以就暫時接postgresql</p>
+<p>一下子WebSocket莫名其妙斷掉</p>
 
-<h3>Rspec、Guard、simplecov、pry</h3>
-
-<p>Rspec和Guard
-非常重要，沒有它保證程式運作正常，心裡都會毛毛的</p>
-
-<p>simplecov 以後程式慢慢變肥的話，測試覆蓋率是一個指標，想重構之前先看看自已寫測試了沒。</p>
-
-<p>pry 就是設中斷點給你用啦！不然除錯會除到哭出來哦！</p>
-
-<h2>接下來要做的部分</h2>
-
-<h3>WebSocket</h3>
-
-<p>其實這才是重點= =，如何能夠讓頁面元素透過Server-Client即時的交換資料來出現神奇的功能就靠它啦！</p>
-
-<h3>與MQ的串接</h3>
-
-<p>原本我們在公司是用ActiveMQ接tomcat來做訊息的傳遞，看到了Stomp這個Apache推出的support，應該不會是難事了吧。</p>
-
-<p>後面還有不少東西要作，一步一步來吧</p>
+<p>看來還是不要逆天行事，以後大家還是乖乖用AMQP做事好了，研究完WebSocket的部分，再來好好介紹AMQP。</p>
 </div>
 
 
@@ -160,7 +142,7 @@
   
 
 
-<time datetime="2013-07-04T16:22:00+08:00" pubdate data-updated="true">Jul 4<span>th</span>, 2013</time>
+<time datetime="2013-07-26T22:29:00+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2013</time>
       
 
 
@@ -168,7 +150,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://motephyr.github.io/blog/2013/07/04/easygo/" data-via="" data-counturl="http://motephyr.github.io/blog/2013/07/04/easygo/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/" data-via="" data-counturl="http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -181,10 +163,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/06/30/about-octopress/" title="Previous Post: octopress & Markdown">&laquo; octopress & Markdown</a>
+        <a class="basic-alignment left" href="/blog/2013/07/11/ruby-closure-block/" title="Previous Post: Ruby的block和Closure">&laquo; Ruby的block和Closure</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/07/11/ruby-closure-block/" title="Next Post: Ruby的block和Closure">Ruby的block和Closure &raquo;</a>
       
     </p>
   </footer>
@@ -246,8 +226,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://motephyr.github.io/blog/2013/07/04/easygo/';
-        var disqus_url = 'http://motephyr.github.io/blog/2013/07/04/easygo/';
+        var disqus_identifier = 'http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/';
+        var disqus_url = 'http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/';
         var disqus_script = 'embed.js';
       
     (function () {

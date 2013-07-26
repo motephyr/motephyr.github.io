@@ -9,13 +9,9 @@
   <meta name="author" content="Mark Wu">
 
   
-  <meta name="description" content="今天介紹一下Ruby的block和Closure
-參考了各方意見，決定為它下一個定義(因為真的很容易搞混)，而我也只針對Ruby的部分做解釋，也許在其他語言上的定義也不一定一樣。 block(區塊) 你只要看到 1
-xxx {…} 或 1
-2
-3
-xxx do …
-end 這就是區塊， &hellip;">
+  <meta name="description" content="最近持續的研究Goliath 原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath) 白話文：
+將從java過來的訊息透過java message service以goliath server接收 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +67,68 @@ end 這就是區塊， &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/26/guan-yu-goliathde-dong/">關於Goliath的洞</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-26T22:29:00+08:00" pubdate data-updated="true">Jul 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近持續的研究Goliath</p>
+
+<p>原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
+
+<p>白話文：
+將從java過來的訊息透過java message service以goliath server接收，最後以WebSocket協定送至畫面上。</p>
+
+<h3>選擇MQ時考慮過的其他做法</h3>
+
+<h6>AMQP(Advanced Message Queuing Protocol)</h6>
+
+<p>要不是不想動MQServer(需要換成RabbitMQ)，這個做法其實比較標準</p>
+
+<h6>STOMP</h6>
+
+<p>很簡單的架構，但不太夠用。可是jms就非得要用jruby做，就去找了jruby-jms這個套件來處理</p>
+
+<p>結果！結果！Goliath硬是和jruby不合，跑起來就是不對勁</p>
+
+<p>一下子頁面出不來</p>
+
+<p>一下子Message接不到</p>
+
+<p>一下子WebSocket莫名其妙斷掉</p>
+
+<p>看來還是不要逆天行事，以後大家還是乖乖用AMQP做事好了，研究完WebSocket的部分，再來好好介紹AMQP。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -416,6 +474,10 @@ end 這就是區塊， &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/guan-yu-goliathde-dong/">關於Goliath的洞</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/07/11/ruby-closure-block/">Ruby的block和Closure</a>
