@@ -9,9 +9,8 @@
   <meta name="author" content="Mark Wu">
 
   
-  <meta name="description" content="最近持續的研究Goliath 原本想要做的事情：
-Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath) 白話文：
-將從java過來的訊息透過java message service以goliath server接收 &hellip;">
+  <meta name="description" content="針對rails102作業裡的acts_as_commentable給一些說明。 當然也可以自已建一個對應Posts的Comments Table。
+但主要有的時候你的評論不一定只用在一篇文章，也有可能針對像圖片，連結等等的物件，那就可以考慮以這個Gem做處理。 主要安裝過程(for rails4 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +66,152 @@ Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath) 白話文�
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/05/gem-acts-as-commentable/">Gem Acts_as_commentable</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-05T20:11:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>針對rails102作業裡的<a href="https://github.com/jackdempsey/acts_as_commentable">acts_as_commentable</a>給一些說明。</p>
+
+<p>當然也可以自已建一個對應Posts的Comments Table。
+但主要有的時候你的評論不一定只用在一篇文章，也有可能針對像圖片，連結等等的物件，那就可以考慮以這個Gem做處理。</p>
+
+<h3>主要安裝過程(for rails4)</h3>
+
+<p>在Gemfile加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;acts_as_commentable&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generator對應的程式碼</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">comment</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在你需要加評論的對象moel上加acts_as_commentable</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">acts_as_commentable</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>自已寫對應的method和route來處理新增評論的情況，有幾個點要注意，以下是範例</h3>
+
+<p>1.在你的user.rb下加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:comments</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2.在你的posts_controller.rb會加入類似如下的code</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create_comment</span>
+</span><span class='line'>  <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">comment</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">comment</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>  <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>  <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">comment_params</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:comment</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3.在routes.rb加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">post</span> <span class="s2">&quot;/posts/:id/comments/create&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;posts#create_comment&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4.posts/show.html.erb加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="o">&lt;</span><span class="sx">% @post.comments.each </span><span class="k">do</span> <span class="o">|</span><span class="n">comment</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;table&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="sx">%= comment.author.email %&gt; 表示：&lt;/tr&gt;</span>
+</span><span class='line'><span class="sx">      &lt;td&gt;</span>
+</span><span class='line'><span class="sx">        &lt;%=</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;/td&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/table&gt;</span>
+</span><span class='line'><span class="sr">  &lt;% end %&gt;</span>
+</span><span class='line'><span class="sr">  &lt;div&gt;</span>
+</span><span class='line'><span class="sr">    &lt;%= form_for(@comment,:url =&gt; post_path(@post)+&#39;/</span><span class="n">comments</span><span class="o">/</span><span class="n">create</span><span class="err">&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>  <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%= f.text_area :comment %&gt;</span>
+</span><span class='line'>    <span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">&quot;留言&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% end %&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>筆記供參考，但最好了解一下為什麼要加入這些code的理由和它做了些什麼事，幫助會更大。</p>
+
+<p>參考文章主要是<a href="http://juixe.com/techknow/index.php/2006/06/18/acts-as-commentable-plugin/">http://juixe.com/techknow/index.php/2006/06/18/acts-as-commentable-plugin/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -476,6 +621,10 @@ Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/05/gem-acts-as-commentable/">Gem Acts_as_commentable</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/26/guan-yu-goliathde-dong/">關於Goliath的洞</a>
       </li>
     
@@ -504,7 +653,7 @@ Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Mark Wu -
+  Copyright &copy; 2014 - Mark Wu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
