@@ -4,7 +4,7 @@
   <title><![CDATA[馬克的程式架構筆記]]></title>
   <link href="http://motephyr.github.io/atom.xml" rel="self"/>
   <link href="http://motephyr.github.io/"/>
-  <updated>2013-06-30T13:24:59+08:00</updated>
+  <updated>2014-01-05T21:38:20+08:00</updated>
   <id>http://motephyr.github.io/</id>
   <author>
     <name><![CDATA[Mark Wu]]></name>
@@ -14,29 +14,408 @@
 
   
   <entry>
-    <title type="html"><![CDATA[about octopress]]></title>
+    <title type="html"><![CDATA[Gem acts_as_commentable]]></title>
+    <link href="http://motephyr.github.io/blog/2014/01/05/gem-acts-as-commentable/"/>
+    <updated>2014-01-05T20:11:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2014/01/05/gem-acts-as-commentable</id>
+    <content type="html"><![CDATA[<p>針對rails102作業裡的<a href="https://github.com/jackdempsey/acts_as_commentable">acts_as_commentable</a>給一些說明。</p>
+
+<p>當然也可以自已建一個對應Posts的Comments Table。
+但主要有的時候你的評論不一定只用在一篇文章，也有可能針對像圖片，連結等等的物件，那就可以考慮以這個Gem做處理。</p>
+
+<h3>主要安裝過程(for rails4)</h3>
+
+<p>在Gemfile加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;acts_as_commentable&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>generator對應的程式碼</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">g</span> <span class="n">comment</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在你需要加評論的對象moel上加acts_as_commentable</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">acts_as_commentable</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>自已寫對應的method和route來處理新增評論的情況，有幾個點要注意，以下是範例</h3>
+
+<p>1.在你的user.rb下加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:comments</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2.在你的posts_controller.rb會加入類似如下的code</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create_comment</span>
+</span><span class='line'>  <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">comment</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">comment</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>  <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>  <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">comment_params</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:comment</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3.在routes.rb加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">post</span> <span class="s2">&quot;/posts/:id/comments/create&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;posts#create_comment&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4.posts/show.html.erb加入</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="o">&lt;</span><span class="sx">% @post.comments.each </span><span class="k">do</span> <span class="o">|</span><span class="n">comment</span><span class="o">|</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;table&gt;</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="sx">%= comment.author.email %&gt; 表示：&lt;/tr&gt;</span>
+</span><span class='line'><span class="sx">      &lt;td&gt;</span>
+</span><span class='line'><span class="sx">        &lt;%=</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">      &lt;/td&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="sr">/table&gt;</span>
+</span><span class='line'><span class="sr">  &lt;% end %&gt;</span>
+</span><span class='line'><span class="sr">  &lt;div&gt;</span>
+</span><span class='line'><span class="sr">    &lt;%= form_for(@comment,:url =&gt; post_path(@post)+&#39;/</span><span class="n">comments</span><span class="o">/</span><span class="n">create</span><span class="err">&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>  <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;%= f.text_area :comment %&gt;</span>
+</span><span class='line'>    <span class="o">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">&quot;留言&quot;</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    &lt;% end %&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>筆記供參考，但最好了解一下為什麼要加入這些code的理由和它做了些什麼事，幫助會更大。</p>
+
+<p>參考文章主要是<a href="http://juixe.com/techknow/index.php/2006/06/18/acts-as-commentable-plugin/">http://juixe.com/techknow/index.php/2006/06/18/acts-as-commentable-plugin/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[關於Goliath的洞]]></title>
+    <link href="http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/"/>
+    <updated>2013-07-26T22:29:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong</id>
+    <content type="html"><![CDATA[<p>最近持續的研究Goliath</p>
+
+<p>原本想要做的事情：
+Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
+
+<p>白話文：
+將從java過來的訊息透過java message service以goliath server接收，最後以WebSocket協定送至畫面上。</p>
+
+<h3>選擇MQ時考慮過的其他做法</h3>
+
+<h6>AMQP(Advanced Message Queuing Protocol)</h6>
+
+<p>要不是不想動MQServer(需要換成RabbitMQ)，這個做法其實比較標準</p>
+
+<h6>STOMP</h6>
+
+<p>很簡單的架構，但不太夠用。可是jms就非得要用jruby做，就去找了jruby-jms這個套件來處理</p>
+
+<p>結果！結果！Goliath硬是和jruby不合，跑起來就是不對勁</p>
+
+<p>一下子頁面出不來</p>
+
+<p>一下子Message接不到</p>
+
+<p>一下子WebSocket莫名其妙斷掉</p>
+
+<p>看來還是不要逆天行事，以後大家還是乖乖用AMQP做事好了，研究完WebSocket的部分，再來好好介紹AMQP。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby的block和Closure]]></title>
+    <link href="http://motephyr.github.io/blog/2013/07/11/ruby-closure-block/"/>
+    <updated>2013-07-11T18:06:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2013/07/11/ruby-closure-block</id>
+    <content type="html"><![CDATA[<p>今天介紹一下Ruby的block和Closure
+參考了各方意見，決定為它下一個定義(因為真的很容易搞混)，而我也只針對Ruby的部分做解釋，也許在其他語言上的定義也不一定一樣。</p>
+
+<h3>block(區塊)</h3>
+
+<p>你只要看到</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">xxx</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>或</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">xxx</span> <span class="k">do</span>
+</span><span class='line'> <span class="err">…</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這就是區塊，它就是一塊會被xxx呼叫的一段程式碼而已。你可以當作它是前一個方法所需的參數，但它就只是一段程式碼。</p>
+
+<p>然而</p>
+
+<h3>closure(閉包)</h3>
+
+<p>是一個物件，這個物件是一個可被呼叫的函式，包含了兩個概念，這兩個概念都屬於closure</p>
+
+<h4>proc</h4>
+
+<p>procedure,一段被物件化的程式碼</p>
+
+<p>它是程式碼, 但和block不同，它被物件化，而使得我們可以呼叫它。</p>
+
+<h4>lambda</h4>
+
+<p>函式,一段被物件化的method</p>
+
+<p>它是方法,絕大多數的情況下它運作的方式和proc都一樣，不同之處在於它return 自已的結果，而proc會return呼叫它的人的結果。</p>
+
+<p>看範例：</p>
+
+<figure class='code'><figcaption><span>Compare Proc with Lambda </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>  <span class="n">f</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;return from foo from inside proc&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">call</span> <span class="c1"># control leaves foo here</span>
+</span><span class='line'>  <span class="k">return</span> <span class="s2">&quot;return from foo&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">bar</span>
+</span><span class='line'>  <span class="n">f</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">&quot;return from lambda&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">f</span><span class="o">.</span><span class="n">call</span> <span class="c1"># control does not leave bar here</span>
+</span><span class='line'>  <span class="k">return</span> <span class="s2">&quot;return from bar&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">foo</span> <span class="c1"># prints &quot;return from foo from inside proc&quot; </span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">bar</span> <span class="c1"># prints &quot;return from bar&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>了解為什麼嗎？
+你可以當作當你在你原本的method呼叫proc作用時，你的code就被直接塞了一段程式碼進去，於是當它寫到return時，後面的code就不會執行了，但lambda是一個函式，當你在你原本的method呼叫它時，它只是呼叫另一個函式。當lambda執行到return時，它傳回它自已執行的結果。</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">x</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">b</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">x</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上三個執行結果相同，都會把1~10印出來。
+而</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">x</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>  <span class="c1"># hello</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="nb">proc</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">x</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">b</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>  <span class="c1"># hello</span>
+</span><span class='line'><span class="n">c</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">x</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">c</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>  <span class="c1"># error</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>目前在Ruby 2.0版輸出的結果，a和b都可接受不定長度的參數，而c會error</p>
+
+<p>這和
+<a href="http://www.cnblogs.com/puresoul/archive/2011/11/02/2232809.html">http://www.cnblogs.com/puresoul/archive/2011/11/02/2232809.html</a>
+上面的結果不同，需要特別注意</p>
+
+<p>一般來說如果真的要使用的話，採用lamdba會比較沒有程式意外的狀況。</p>
+
+<p>定義清楚這些名詞的差別，以後就不會看得霧煞煞啦。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Easygo]]></title>
+    <link href="http://motephyr.github.io/blog/2013/07/04/easygo/"/>
+    <updated>2013-07-04T16:22:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2013/07/04/easygo</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/postrank-labs/goliath">Goliath</a>是以Ruby開發的non-blocking (asynchronous) Server，相對於最近熱門到不行的node.js來說，也是一個強調高效能且即時的Server。</p>
+
+<p>目前個人做了一個小玩具，叫EasyGo(liath)，就是幫goliath(巨人)接接原本它沒有的翅膀呀，手呀腳呀(Goliath給出來的東西都是小東西，發育不良)，自已做起東西就方便得多。</p>
+
+<p>至於為什麼不想用node.js來做呢？</p>
+
+<ul>
+<li>對javascipt有恐懼感 = = 我沒有jquery就不會做事了</li>
+<li>一堆callback看到我眼睛都抽筋了</li>
+<li>比較想用ruby寫東西(個人私心)</li>
+</ul>
+
+
+<p>以上只代表一件事 I love ruby > javascript</p>
+
+<p>回主題，重點是Goliath和其他元件如何搭配出我在Java做了三年的工具，所以原本其實只要搞定連接mqserver，使用Websocket和在不支援前者時改用long-polling的問題就可以處理掉通知功能，但還是做了不少其他的部分，有些東西，像測試，以前用java不會花時間寫，但在重構的過程中卻是很重要的部分，所以也算是一種進步吧。</p>
+
+<h2>目前用到的模組</h2>
+
+<h3>Grape</h3>
+
+<p>用以處理路由的部分，以前我寫spring MVC的人，路由不喜歡另外搞一個檔案出來維護，route檔案肥了你也看不懂，還不如照著Rest-like的規則把Controller寫好不是很方便嗎？</p>
+
+<h3>Postgresql</h3>
+
+<p>資料庫嘛…總是要挑一種來存資料的，我們用postgresql習慣了，所以就暫時接postgresql</p>
+
+<h3>Rspec、Guard、simplecov、pry</h3>
+
+<p>Rspec和Guard
+非常重要，沒有它保證程式運作正常，心裡都會毛毛的</p>
+
+<p>simplecov 以後程式慢慢變肥的話，測試覆蓋率是一個指標，想重構之前先看看自已寫測試了沒。</p>
+
+<p>pry 就是設中斷點給你用啦！不然除錯會除到哭出來哦！</p>
+
+<h2>接下來要做的部分</h2>
+
+<h3>WebSocket</h3>
+
+<p>其實這才是重點= =，如何能夠讓頁面元素透過Server-Client即時的交換資料來出現神奇的功能就靠它啦！</p>
+
+<h3>與MQ的串接</h3>
+
+<p>原本我們在公司是用ActiveMQ接tomcat來做訊息的傳遞，看到了Stomp這個Apache推出的support，應該不會是難事了吧。</p>
+
+<p>後面還有不少東西要作，一步一步來吧</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[octopress & Markdown]]></title>
     <link href="http://motephyr.github.io/blog/2013/06/30/about-octopress/"/>
-    <updated>2013-06-30T13:24:00+08:00</updated>
+    <updated>2013-06-30T13:37:00+08:00</updated>
     <id>http://motephyr.github.io/blog/2013/06/30/about-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[關於octopress]]></title>
-    <link href="http://motephyr.github.io/blog/2013/06/30/guan-yu-octopress/"/>
-    <updated>2013-06-30T13:20:00+08:00</updated>
-    <id>http://motephyr.github.io/blog/2013/06/30/guan-yu-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[]]></title>
-    <link href="http://motephyr.github.io/blog/2013/06/30/"/>
-    <updated>2013-06-30T13:18:00+08:00</updated>
-    <id>http://motephyr.github.io/blog/2013/06/</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>一直有寫文件的需求，苦於對blog或wordpress這類的東西不太上手，到現在才看到Octopress，覺得相當適合，打算拿它來寫點技術性的文章。</p>
+
+<p>也順便來推廣一下 markdown 好了，最近對markdown的語法愛不釋手，覺得用來寫技術文件蠻適合的，基本上寫東西的需求很少，能夠讓字該大的時候大，該小的時候小，沒事加個圖片、超連結或code block這樣就夠了。</p>
+
+<p><a href="http://mouapp.com">Mou</a>是Mac上的markdown editor 很不錯用(有markdown前和後的對照就很方便了)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[馬克的xxx筆記](http://motephyr.github.io)
+</span><span class='line'>
+</span><span class='line'>![ruby icon](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ruby_logo.png/105px-Ruby_logo.png)
+</span><span class='line'># This is H1 
+</span><span class='line'>## This is H2
+</span><span class='line'>### This is H3
+</span><span class='line'>#### This is H4
+</span><span class='line'>##### This is H5
+</span><span class='line'>###### This is H6</span></code></pre></td></tr></table></div></figure>
+
+
+<p>出現的效果就像下面這樣</p>
+
+<h3><a href="http://motephyr.github.io">馬克的ooxx筆記</a></h3>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ruby_logo.png/105px-Ruby_logo.png" alt="ruby icon" /></p>
+
+<h1>This is H1</h1>
+
+<h2>This is H2</h2>
+
+<h3>This is H3</h3>
+
+<h4>This is H4</h4>
+
+<h5>This is H5</h5>
+
+<h6>This is H6</h6>
+
+<p>之後有空再來介紹一下我在github放的專案，Readme.md只能寫個大概，在這邊應該可以寫的比較詳細吧？</p>
 ]]></content>
   </entry>
   

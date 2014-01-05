@@ -1,27 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://motephyr.github.io/blog/2013/06/30/</loc>
-        <lastmod>2013-06-30T13:18:59+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://motephyr.github.io/blog/2013/06/30/guan-yu-octopress/</loc>
-        <lastmod>2013-06-30T13:20:10+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://motephyr.github.io/blog/2013/06/30/about-octopress/</loc>
-        <lastmod>2013-06-30T13:24:03+08:00</lastmod>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://motephyr.github.io/blog/2013/07/04/easygo/</loc>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://motephyr.github.io/blog/2013/07/11/ruby-closure-block/</loc>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://motephyr.github.io/blog/2013/07/26/guan-yu-goliathde-dong/</loc>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://motephyr.github.io/blog/2014/01/05/gem-acts-as-commentable/</loc>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
     </url>
     <url>
         <loc>http://motephyr.github.io/blog/archives/</loc>
-        <lastmod>2013-06-30T13:24:03+08:00</lastmod>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
     </url>
     <url>
         <loc>http://motephyr.github.io/</loc>
-        <lastmod>2013-06-30T13:24:03+08:00</lastmod>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
     </url>
     <url>
         <loc>http://motephyr.github.io/robots.txt</loc>
-        <lastmod>2013-06-26T22:55:51+08:00</lastmod>
+        <lastmod>2014-01-05T21:30:52+08:00</lastmod>
     </url>
 </urlset>
