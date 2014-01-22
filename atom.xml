@@ -4,7 +4,7 @@
   <title><![CDATA[馬克的程式架構筆記]]></title>
   <link href="http://motephyr.github.io/atom.xml" rel="self"/>
   <link href="http://motephyr.github.io/"/>
-  <updated>2014-01-05T21:38:20+08:00</updated>
+  <updated>2014-01-23T01:27:52+08:00</updated>
   <id>http://motephyr.github.io/</id>
   <author>
     <name><![CDATA[Mark Wu]]></name>
@@ -12,6 +12,152 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails service層的使用時機]]></title>
+    <link href="http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/"/>
+    <updated>2014-01-23T00:35:00+08:00</updated>
+    <id>http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji</id>
+    <content type="html"><![CDATA[<p>在Rails 102的作業中，有一段code自已覺得很醜，請教了一下xdite大：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">create_comment</span>
+</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">comment</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">comment</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>      <span class="c1">#取得所有人的email 去掉重覆的和自已的</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="vi">@post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailer</span><span class="o">.</span><span class="n">sendmessage</span><span class="p">(</span><span class="n">uniq_emails_delete_self</span><span class="p">,</span><span class="vi">@post</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">render</span> <span class="ss">:show</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這個action主要的用途是用於在留言，而留言完成後需要寄信通知其他不重覆的回應者(不包括自已)</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>      <span class="c1">#取得所有人的email 去掉重覆的和自已的</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="vi">@post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這段code照了我想像的邏輯處理，但它不適合寫在controller裡面，Controller原本就只需處理由model取得資料&mdash;將資料展現在View這樣的動作，其餘額外的動作應該另外開一層Service。</p>
+
+<p>於是就來把services目錄做出來</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>yourproject/app
+</span><span class='line'>mkdir services
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>rails已經幫你預先載入這個路徑下的檔案了，所以裡面新增的程式都可以在controller下呼叫</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vi yourproject/app/services/post_mailer_service.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入以下內容</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostMailerService</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#取得應收到訊息的email list</span>
+</span><span class='line'>  <span class="c1">#去掉重覆的和自已的</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">send_email_to_other_people</span><span class="p">(</span><span class="n">post</span><span class="p">,</span><span class="n">comment</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="n">post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailer</span><span class="o">.</span><span class="n">sendmessage</span><span class="p">(</span><span class="n">uniq_emails_delete_self</span><span class="p">,</span><span class="n">post</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>原本的程式改為</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailerService</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="o">.</span><span class="n">send_email_to_other_people</span><span class="p">(</span><span class="vi">@post</span><span class="p">,</span><span class="n">comment</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">render</span> <span class="ss">:show</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣雖然還不能說很漂亮，但已經達到我們要把不相關的邏輯由controller拆分出來的目的了。</p>
+
+<p>參考文件
+<a href="http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html">http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gem acts_as_commentable]]></title>

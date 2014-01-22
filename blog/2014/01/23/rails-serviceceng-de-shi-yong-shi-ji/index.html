@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rails service層的使用時機 - 馬克的程式架構筆記</title>
+  <meta name="author" content="Mark Wu">
+
+  
+  <meta name="description" content="在Rails 102的作業中，有一段code自已覺得很醜，請教了一下xdite大： 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18 def create_comment @post = Post.find(params[:id]) comment = @ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="馬克的程式架構筆記" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">馬克的程式架構筆記</a></h1>
+  
+    <h2>為了創造有價值的產品，想法、實作架構、行銷有同等的重要性</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:motephyr.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rails Service層的使用時機</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-23T00:35:00+08:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>在Rails 102的作業中，有一段code自已覺得很醜，請教了一下xdite大：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">create_comment</span>
+</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">comment</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">comment_params</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">comment</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">current_user</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>      <span class="c1">#取得所有人的email 去掉重覆的和自已的</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="vi">@post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailer</span><span class="o">.</span><span class="n">sendmessage</span><span class="p">(</span><span class="n">uniq_emails_delete_self</span><span class="p">,</span><span class="vi">@post</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">render</span> <span class="ss">:show</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這個action主要的用途是用於在留言，而留言完成後需要寄信通知其他不重覆的回應者(不包括自已)</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>      <span class="c1">#取得所有人的email 去掉重覆的和自已的</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="vi">@post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="vi">@post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這段code照了我想像的邏輯處理，但它不適合寫在controller裡面，Controller原本就只需處理由model取得資料&mdash;將資料展現在View這樣的動作，其餘額外的動作應該另外開一層Service。</p>
+
+<p>於是就來把services目錄做出來</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>yourproject/app
+</span><span class='line'>mkdir services
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>rails已經幫你預先載入這個路徑下的檔案了，所以裡面新增的程式都可以在controller下呼叫</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vi yourproject/app/services/post_mailer_service.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入以下內容</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostMailerService</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#取得應收到訊息的email list</span>
+</span><span class='line'>  <span class="c1">#去掉重覆的和自已的</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">send_email_to_other_people</span><span class="p">(</span><span class="n">post</span><span class="p">,</span><span class="n">comment</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">emails</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">emails_add_posts</span> <span class="o">=</span> <span class="n">emails</span> <span class="o">+</span> <span class="o">[</span><span class="n">post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">uniq_emails</span> <span class="o">=</span> <span class="n">emails_add_posts</span><span class="o">.</span><span class="n">uniq</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'>      <span class="n">uniq_emails_delete_self</span> <span class="o">=</span> <span class="n">uniq_emails</span> <span class="o">-</span> <span class="o">[</span><span class="n">comment</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailer</span><span class="o">.</span><span class="n">sendmessage</span><span class="p">(</span><span class="n">uniq_emails_delete_self</span><span class="p">,</span><span class="n">post</span><span class="p">,</span> <span class="n">comment</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>原本的程式改為</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">comment</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="no">PostMailerService</span><span class="o">.</span><span class="n">new</span><span class="p">()</span><span class="o">.</span><span class="n">send_email_to_other_people</span><span class="p">(</span><span class="vi">@post</span><span class="p">,</span><span class="n">comment</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">post_path</span><span class="p">(</span><span class="vi">@post</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">render</span> <span class="ss">:show</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣雖然還不能說很漂亮，但已經達到我們要把不相關的邏輯由controller拆分出來的目的了。</p>
+
+<p>參考文件
+<a href="http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html">http://yedingding.com/2013/03/04/steps-to-refactor-controller-and-models-in-rails-projects.html</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mark Wu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-23T00:35:00+08:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/" data-via="" data-counturl="http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/05/gem-acts-as-commentable/" title="Previous Post: Gem acts_as_commentable">&laquo; Gem acts_as_commentable</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/">Rails Service層的使用時機</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/05/gem-acts-as-commentable/">Gem Acts_as_commentable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/guan-yu-goliathde-dong/">關於Goliath的洞</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/11/ruby-closure-block/">Ruby的block和Closure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/04/easygo/">Easygo</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Mark Wu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'motephyr';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/';
+        var disqus_url = 'http://motephyr.github.io/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
