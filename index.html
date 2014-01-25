@@ -9,24 +9,9 @@
   <meta name="author" content="Mark Wu">
 
   
-  <meta name="description" content="在Rails 102的作業中，有一段code自已覺得很醜，請教了一下xdite大： 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18 def create_comment @post = Post.find(params[:id]) comment = @ &hellip;">
+  <meta name="description" content="備註：這篇文章是根據實驗結果之後的心得紀錄，僅供參考。如有任何問題歡迎討論。 事前工作： 1.加respond_to到你要call的action
+2.在html.erb設定觸發連結或在js內寫request
+3.寫好你要render的 partial erb(ex: _event.html.erb &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +67,154 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/25/railszhi-ajaxxin-de-ji-lu/">Rails之ajax心得紀錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-25T19:19:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>備註：這篇文章是根據實驗結果之後的心得紀錄，僅供參考。如有任何問題歡迎討論。</p>
+
+<p>事前工作：</p>
+
+<ul>
+<li><p>1.加respond_to到你要call的action</p></li>
+<li><p>2.在html.erb設定觸發連結或在js內寫request</p></li>
+<li><p>3.寫好你要render的 partial erb(ex: _event.html.erb)</p></li>
+<li><p>4.在js.erb加入類似 $(&lsquo;#content&rsquo;).html(&ldquo;&lt;%= escape_javascript(render :partial => &lsquo;event&rsquo;) %>&rdquo;) 的code.</p></li>
+</ul>
+
+
+<p>其實有一點複雜，建議自已嘗試一下。</p>
+
+<p>試了一下rails的ajax刷新畫面做法，大致分為以下三種：</p>
+
+<h3>1.傳json資料回js，callback回success，再組畫面。</h3>
+
+<figure class='code'><figcaption><span>index.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/posts.json&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">dataType</span><span class="o">:</span><span class="s1">&#39;json&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">}).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#content&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>是最基本(也是最麻煩的一招)，必須要在js裡面自已寫HTML tag。</p>
+
+<h3>2.在link內設定remote true，這時rails會在你點擊按鈕的同時去將js.erb的script load進來，你可以在這裡載入你想要的partial。</h3>
+
+<figure class='code'><figcaption><span>index.html.erb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">(</span><span class="s1">&#39;remote page&#39;</span><span class="p">,</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span><span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s2">&quot;btn btn-small btn-info&quot;</span><span class="p">,</span><span class="ss">:remote</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="s2">&quot;data-type&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;script&quot;</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.js.erb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#ajax_content&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;%= j(render :partial =&gt; &#39;index&#39;) %&gt;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//要render哪個partial是可以改變的哦</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>單純的情況下這樣很省事</p>
+
+<h3>3.自已寫ajax request，你可以在任何時機去處理你要做的動作，同時還是可以load你想要的partial。</h3>
+
+<figure class='code'><figcaption><span>index.js </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/posts&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">dataType</span><span class="o">:</span><span class="s1">&#39;script&#39;</span>
+</span><span class='line'>    <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>index.js.erb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#ajax_content&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;%= j(render :partial =&gt; &#39;index&#39;) %&gt;&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="c1">//要render哪個partial是可以改變的哦</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>自定性高。</p>
+
+<p>額外註記一下，有些地方的教學會要你加以下這段code到action裡</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>經過測試，其實在我目前的環境(rails4的原因嗎？)下是可以不用加的，但假設你另外有返回json格式的情況，那就一定要寫成</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">js</span>
+</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:json</span> <span class="o">=&gt;</span> <span class="vi">@posts</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>少寫的部分就會不能作用，要注意。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -810,6 +943,10 @@ Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/25/railszhi-ajaxxin-de-ji-lu/">Rails之ajax心得紀錄</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/23/rails-serviceceng-de-shi-yong-shi-ji/">Rails Service層的使用時機</a>
       </li>
     
@@ -823,10 +960,6 @@ Java (Spring Framework)&mdash;ActiveMQ(JMS)&mdash;WebSocket(Goliath)</p>
     
       <li class="post">
         <a href="/blog/2013/07/11/ruby-closure-block/">Ruby的block和Closure</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/04/easygo/">Easygo</a>
       </li>
     
   </ul>
